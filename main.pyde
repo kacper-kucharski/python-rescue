@@ -7,24 +7,48 @@ import result
 import title_screen
 add_library('controlP5')
 
+def changeFocus():
+    global textFields
+    len(textFields)
+    for i in textFields:
+        if textFields[i].isFocus() == True:
+            if i == len(textFields):
+                textFields[i].setFocus(False)
+                textFields[1].setFocus(True)
+                break
+            textFields[i].setFocus(False)
+            textFields[i+1].setFocus(True)
+            
+            break
 def setup():
-    size(800, 500)
-    # global playerName, savedPlayerName
+    global playerName, savedPlayerName, textFields
+    font = createFont("arial",20);
     cp5 = ControlP5(this)
-    cp5.Button().isPressed()
-    # playerName = ""
-    # savedPlayerName = None
+    textFields = {
+    1: '',
+    2: '',
+    3: '',
+    4: ''
+    }
+    textFields[1] = cp5.addTextfield("Player 1").setPosition(20,20).setSize(100,30).setFont(font)
+    textFields[2] = cp5.addTextfield("Player 2").setPosition(150,20).setSize(100,30).setFont(font)
+    textFields[3] = cp5.addTextfield("Player 3").setPosition(280,20).setSize(100,30).setFont(font)
+    textFields[4] = cp5.addTextfield("Player 4").setPosition(410,20).setSize(100,30).setFont(font)
+    size(800, 500)
 
 def draw():
     pass
     
-# def keyPressed():
-#     global playerName, savedPlayerName
-#     playerName = playerName + str(key)
-#     if key == "\n":
-#         playerName = playerName.replace("65535", "")
-#         playerName = playerName.replace("\n", "")
-#         savedPlayerName = playerName
-#         playerName = ""
-#         print("Saved Name: ", savedPlayerName)
-#         print("Player Name: ", playerName)
+def keyPressed():
+    global savedPlayerName, textFields
+    if keyCode == 9:
+        changeFocus()
+    if key == "\n":
+        savedPlayerName1 = textFields[1].getText()
+        savedPlayerName2 = textFields[2].getText()
+        savedPlayerName3 = textFields[3].getText()
+        savedPlayerName4 = textFields[4].getText()
+        print(savedPlayerName1)
+        print(savedPlayerName2)
+        print(savedPlayerName3)
+        print(savedPlayerName4)
