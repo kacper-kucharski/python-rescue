@@ -1,3 +1,10 @@
+import chance
+import doom
+import duel
+import menu
+import questions
+import result
+import title_screen
 add_library('controlP5')
 def changeFocus():
     global textFields
@@ -23,8 +30,6 @@ def setup():
     textFields.append(cp5.addTextfield("Player 4").setPosition(410,20).setSize(100,30).setFont(font))
     textFields.append(cp5.addButton("Verder").setPosition(350,200).setSize(100,50).setFont(font))
     size(800, 500)
-    playerName = ""
-    savedPlayerName = None
 
 def draw():
     pass

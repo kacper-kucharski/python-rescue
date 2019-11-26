@@ -1,0 +1,3 @@
+Superscore, Player Name, Money
+999999, Kac, 0$
+888988, Kaas, 100$
