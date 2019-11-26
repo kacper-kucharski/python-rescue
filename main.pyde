@@ -21,7 +21,7 @@ def changeFocus():
             
             break
 def setup():
-    global playerName, savedPlayerName, textFields
+    global playerName, savedPlayerName, textFields, button, cp5, font, yes
     font = createFont("arial",20);
     cp5 = ControlP5(this)
     textFields = {
@@ -30,14 +30,31 @@ def setup():
     3: '',
     4: ''
     }
+    background = 2
     textFields[1] = cp5.addTextfield("Player 1").setPosition(20,20).setSize(100,30).setFont(font)
     textFields[2] = cp5.addTextfield("Player 2").setPosition(150,20).setSize(100,30).setFont(font)
     textFields[3] = cp5.addTextfield("Player 3").setPosition(280,20).setSize(100,30).setFont(font)
     textFields[4] = cp5.addTextfield("Player 4").setPosition(410,20).setSize(100,30).setFont(font)
+    button = cp5.addButton("Start", 0, width/2, 100, 100, 50)
+    
+    yes = False
+    
     size(800, 500)
+    
+    
 
 def draw():
-    pass
+    global yes
+    if yes:
+        menu.draw()
+    
+def mousePressed():
+    global button, yes
+    if button.isPressed():
+        print("hello")
+        yes = True
+    else:
+        yes = False
     
 def keyPressed():
     global savedPlayerName, textFields
