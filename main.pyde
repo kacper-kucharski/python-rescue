@@ -5,7 +5,9 @@ import menu
 import questions
 import result
 import title_screen
+
 add_library('controlP5')
+
 def changeFocus():
     global textFields
     len(textFields)
@@ -17,8 +19,8 @@ def changeFocus():
                 break
             textFields[i].setFocus(False)
             textFields[i+1].setFocus(True)
-            
             break
+        
 def setup():
     global playerName, savedPlayerName, textFields, cp5, font, scene
     font = createFont("arial",20);
@@ -65,24 +67,46 @@ def keyPressed():
         print(savedPlayerName4)
         
 def mousePressed():
-    global cp5
+    global cp5, scene
     try:
         if cp5.getController("Verder").isPressed():
+            scene += 1
+            print(scene)
             background(200)
             try:
-                cp5.getController("Player 1").remove()
-                cp5.getController("Player 2").remove()
-                cp5.getController("Player 3").remove()
-                cp5.getController("Player 4").remove()
-                cp5.addTextfield("Player 1").setPosition(20,120).setSize(100,30).setFont(font)
-                cp5.addTextfield("Player 2").setPosition(150,120).setSize(100,30).setFont(font)
-                cp5.addTextfield("Player 3").setPosition(280,120).setSize(100,30).setFont(font)
-                cp5.addTextfield("Player 4").setPosition(410,120).setSize(100,30).setFont(font)
-                cp5.getController("Verder").remove()
-                print(textFields)
+                if scene == 1:
+                    for i in textFields:
+                        cp5.getController(i.getName()).remove()
+                    # cp5.addTextfield("Player 1").setPosition(20,120).setSize(100,30).setFont(font)
+                    # cp5.addTextfield("Player 2").setPosition(150,120).setSize(100,30).setFont(font)
+                    # cp5.addTextfield("Player 3").setPosition(280,120).setSize(100,30).setFont(font)
+                    # cp5.addTextfield("Player 4").setPosition(410,120).setSize(100,30).setFont(font)
+                    textFields.append(cp5.addButton("Verder").setPosition(600,400).setSize(100,50).setFont(font).setId(5))
+                    textFields.append(cp5.addButton("Terug").setPosition(100,400).setSize(100,50).setFont(font).setId(5))
+                    
+                    text("Menu", 400, 250)
+                    
+                    # print(textFields)
+            except:
+                pass
+        elif cp5.getController("Terug").isPressed():
+            print(scene)
+            scene -= 1
+            background(200)
+            try:
+                if scene == 0:
+                    cp5.getController("Player 1").remove()
+                    cp5.getController("Player 2").remove()
+                    cp5.getController("Player 3").remove()
+                    cp5.getController("Player 4").remove()
+                    textFields.append(cp5.addTextfield("Player 1").setPosition(20,20).setSize(100,30).setFont(font).setId(1))
+                    textFields.append(cp5.addTextfield("Player 2").setPosition(150,20).setSize(100,30).setFont(font).setId(2))
+                    textFields.append(cp5.addTextfield("Player 3").setPosition(280,20).setSize(100,30).setFont(font).setId(3))
+                    textFields.append(cp5.addTextfield("Player 4").setPosition(410,20).setSize(100,30).setFont(font).setId(4))
+                    textFields.append(cp5.addButton("Verder").setPosition(350,200).setSize(100,50).setFont(font).setId(5))
             except:
                 pass
     except:
         pass
-def changeGameState(number):
+def GetGameState(number):
     global cp5
