@@ -1,5 +1,5 @@
 import chance
-import doom
+import doom 
 import duel
 import menu
 import questions
@@ -13,7 +13,7 @@ def changeFocus():
     len(textFields)
     for i in textFields:
         if textFields[i].isFocus() == True:
-            if i == len(textFields):
+            if i == 4:
                 textFields[i].setFocus(False)
                 textFields[1].setFocus(True)
                 break
@@ -27,11 +27,12 @@ def setup():
     scene = 0
     cp5 = ControlP5(this)
     textFields = []
-    textFields.append(cp5.addTextfield("Player 1").setPosition(20,20).setSize(100,30).setFont(font).setId(1))
-    textFields.append(cp5.addTextfield("Player 2").setPosition(150,20).setSize(100,30).setFont(font).setId(2))
-    textFields.append(cp5.addTextfield("Player 3").setPosition(280,20).setSize(100,30).setFont(font).setId(3))
-    textFields.append(cp5.addTextfield("Player 4").setPosition(410,20).setSize(100,30).setFont(font).setId(4))
-    textFields.append(cp5.addButton("Verder").setPosition(350,200).setSize(100,50).setFont(font).setId(5))
+    textFields.append(cp5.addTextfield("Player 1").setPosition(20,20).setSize(100,30).setFont(font))
+    textFields.append(cp5.addTextfield("Player 2").setPosition(150,20).setSize(100,30).setFont(font))
+    textFields.append(cp5.addTextfield("Player 3").setPosition(280,20).setSize(100,30).setFont(font))
+    textFields.append(cp5.addTextfield("Player 4").setPosition(410,20).setSize(100,30).setFont(font))
+    textFields.append(cp5.addButton("Verder").setPosition(350,200).setSize(100,50).setFont(font))
+    doom.setup()
     size(800, 500)
     
     
@@ -81,9 +82,9 @@ def mousePressed():
                     # cp5.addTextfield("Player 2").setPosition(150,120).setSize(100,30).setFont(font)
                     # cp5.addTextfield("Player 3").setPosition(280,120).setSize(100,30).setFont(font)
                     # cp5.addTextfield("Player 4").setPosition(410,120).setSize(100,30).setFont(font)
-                    textFields.append(cp5.addButton("Verder").setPosition(600,400).setSize(100,50).setFont(font).setId(5))
-                    textFields.append(cp5.addButton("Terug").setPosition(100,400).setSize(100,50).setFont(font).setId(5))
-                    
+                    textFields.append(cp5.addButton("Verder").setPosition(600,400).setSize(100,50).setFont(font))
+                    textFields.append(cp5.addButton("Terug").setPosition(100,400).setSize(100,50).setFont(font))
+                    textFields.append(cp5.addSlider("GELD!").setSize(100,30).setRange(0,50).setFont(font))
                     text("Menu", 400, 250)
                     
                     # print(textFields)
@@ -99,11 +100,11 @@ def mousePressed():
                     cp5.getController("Player 2").remove()
                     cp5.getController("Player 3").remove()
                     cp5.getController("Player 4").remove()
-                    textFields.append(cp5.addTextfield("Player 1").setPosition(20,20).setSize(100,30).setFont(font).setId(1))
-                    textFields.append(cp5.addTextfield("Player 2").setPosition(150,20).setSize(100,30).setFont(font).setId(2))
-                    textFields.append(cp5.addTextfield("Player 3").setPosition(280,20).setSize(100,30).setFont(font).setId(3))
-                    textFields.append(cp5.addTextfield("Player 4").setPosition(410,20).setSize(100,30).setFont(font).setId(4))
-                    textFields.append(cp5.addButton("Verder").setPosition(350,200).setSize(100,50).setFont(font).setId(5))
+                    textFields.append(cp5.addTextfield("Player 1").setPosition(20,20).setSize(100,30).setFont(font))
+                    textFields.append(cp5.addTextfield("Player 2").setPosition(150,20).setSize(100,30).setFont(font))
+                    textFields.append(cp5.addTextfield("Player 3").setPosition(280,20).setSize(100,30).setFont(font))
+                    textFields.append(cp5.addTextfield("Player 4").setPosition(410,20).setSize(100,30).setFont(font))
+                    textFields.append(cp5.addButton("Verder").setPosition(350,200).setSize(100,50).setFont(font))
             except:
                 pass
     except:
