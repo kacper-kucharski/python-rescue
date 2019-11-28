@@ -101,8 +101,8 @@ def mousePressed():
                         break
             except:
                 pass
-                print(scene)
-                background(200)
+        print(scene)
+        background(200)
         if scene == 1:
             deleteAllComponents()
             textFields.append(cp5.addButton("Cards").setPosition(59,59).setSize(98,52).setFont(font))
