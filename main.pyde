@@ -1,6 +1,5 @@
 import doom
 add_library('controlP5')
-global doom
 def changeFocus():
     global textFields
     len(textFields)
@@ -20,6 +19,7 @@ def setup():
     scene = 0
     cp5 = ControlP5(this)
     textFields = []
+    buttonNames = {"Cards","Leaderboards","Rules","End Game","Vraag","Doom","Kans","Duel","Verzenden","Terug","Player 1","Player 2","Player 3", "Verder"}
     mousePressed()
     size(1280, 800)
     
@@ -95,6 +95,14 @@ def mousePressed():
                 pass
         print(scene)
         background(200)
+        if scene == 0:
+            deleteAllComponents()
+            textFields.append(cp5.addTextfield("Player 1").setPosition(59,59).setSize(98,52).setFont(font))
+            textFields.append(cp5.addTextfield("Player 2").setPosition(357,59).setSize(205,52).setFont(font))
+            textFields.append(cp5.addTextfield("Player 3").setPosition(762,59).setSize(98,52).setFont(font))
+            textFields.append(cp5.addTextfield("Player 4").setPosition(1060,59).setSize(161,59).setFont(font))
+            textFields.append(cp5.addButton("Verder").setPosition(width/2 - 50,300).setSize(100,50).setFont(font))
+            
         if scene == 1:
             deleteAllComponents()
             textFields.append(cp5.addButton("Cards").setPosition(59,59).setSize(98,52).setFont(font))
