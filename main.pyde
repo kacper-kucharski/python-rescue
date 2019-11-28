@@ -1,12 +1,3 @@
-import chance
-import doom
-import duel
-import menu
-import questions
-import result
-import title_screen
-import functions
-
 add_library('controlP5')
 
 def changeFocus():
@@ -83,6 +74,7 @@ def mousePressed():
                 # cp5.addTextfield("Player 4").setPosition(410,120).setSize(100,30).setFont(font)
                 text("Menu", 400, 250)
                 textFields.append(cp5.addButton("Verder").setPosition(600,400).setSize(100,50).setFont(font))
+                textFields.append(cp5.addButton("Terug").setPosition(100,400).setSize(100,50).setFont(font))
             #Vraag
             if scene == 2:
                 deleteAllComponents()
@@ -160,10 +152,10 @@ def mousePressed():
         pass
 def GetGameState(number):
     global cp5
-# def deleteAllComponents():
-#     global cp5
-#     for i in textFields:
-#         try:
-#             cp5.getController(i.getName()).remove()
-#         except:
-#             pass
+def deleteAllComponents():
+    global cp5
+    for i in textFields:
+        try:
+            cp5.getController(i.getName()).remove()
+        except:
+            pass
