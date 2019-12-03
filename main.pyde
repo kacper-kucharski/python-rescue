@@ -1,8 +1,8 @@
 import doom
+
 add_library('controlP5')
 def changeFocus():
     global textFields
-    len(textFields)
     for i in textFields:
         if textFields[i].isFocus() == True:
             if i == 4:
@@ -93,14 +93,13 @@ def mousePressed():
                         break
             except:
                 pass
-        print(scene)
         background(200)
         if scene == 0:
             deleteAllComponents()
-            textFields.append(cp5.addTextfield("Player 1").setPosition(59,59).setSize(98,52).setFont(font))
-            textFields.append(cp5.addTextfield("Player 2").setPosition(357,59).setSize(205,52).setFont(font))
-            textFields.append(cp5.addTextfield("Player 3").setPosition(762,59).setSize(98,52).setFont(font))
-            textFields.append(cp5.addTextfield("Player 4").setPosition(1060,59).setSize(161,59).setFont(font))
+            textFields.append(cp5.addTextfield("Player 1").setPosition(50,50).setSize(150,50).setFont(font))
+            textFields.append(cp5.addTextfield("Player 2").setPosition(300,50).setSize(150,50).setFont(font))
+            textFields.append(cp5.addTextfield("Player 3").setPosition(550,50).setSize(150,50).setFont(font))
+            textFields.append(cp5.addTextfield("Player 4").setPosition(800,50).setSize(150,50).setFont(font))
             textFields.append(cp5.addButton("Verder").setPosition(width/2 - 50,300).setSize(100,50).setFont(font))
             
         if scene == 1:
@@ -133,9 +132,7 @@ def mousePressed():
         #Doom
         if scene == 5:
             deleteAllComponents()
-            text("Doom", 48, 35)
-            text("Sla 3 beurten over", 477, 325)
-            textFields.append(cp5.addButton("Verzenden").setPosition(989,700).setSize(210,51).setFont(font))
+            textFields = doom.startScene(cp5, font, textFields)
         #Duel Start Screen
         if scene == 6:
             deleteAllComponents()
