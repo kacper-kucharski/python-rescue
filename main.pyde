@@ -101,34 +101,33 @@ def mousePressed():
             textFields.append(cp5.addTextfield("Player 3").setPosition(550,50).setSize(150,50).setFont(font))
             textFields.append(cp5.addTextfield("Player 4").setPosition(800,50).setSize(150,50).setFont(font))
             textFields.append(cp5.addButton("Verder").setPosition(width/2 - 50,300).setSize(100,50).setFont(font))
-            
         if scene == 1:
             deleteAllComponents()
-            textFields.append(cp5.addButton("Cards").setPosition(59,59).setSize(98,52).setFont(font))
-            textFields.append(cp5.addButton("Leaderboards").setPosition(357,59).setSize(205,52).setFont(font))
-            textFields.append(cp5.addButton("Rules").setPosition(762,59).setSize(98,52).setFont(font))
-            textFields.append(cp5.addButton("End Game").setPosition(1060,59).setSize(161,59).setFont(font))
-            textFields.append(cp5.addButton("Vraag").setPosition(91,259).setSize(532,193).setFont(font))
-            textFields.append(cp5.addButton("Doom").setPosition(655,259).setSize(532,193).setFont(font))
-            textFields.append(cp5.addButton("Kans").setPosition(91,548).setSize(532,193).setFont(font))
-            textFields.append(cp5.addButton("Duel").setPosition(655,548).setSize(532,193).setFont(font))
+            textFields.append(cp5.addButton("Cards").setPosition(59,59).setSize(98,52).setFont(font).setColorBackground(color(255,0,0)))
+            textFields.append(cp5.addButton("Leaderboards").setPosition(357,59).setSize(205,52).setFont(font).setColorBackground(color(255,0,0)))
+            textFields.append(cp5.addButton("Rules").setPosition(762,59).setSize(98,52).setFont(font).setColorBackground(color(255,0,0)))
+            textFields.append(cp5.addButton("End Game").setPosition(1060,59).setSize(161,59).setFont(font).setColorBackground(color(255,0,0)))
+            textFields.append(cp5.addButton("Vraag").setPosition(91,259).setSize(532,193).setFont(font).setColorBackground(color(255,0,0)))
+            textFields.append(cp5.addButton("Doom").setPosition(655,259).setSize(532,193).setFont(font).setColorBackground(color(255,0,0)))
+            textFields.append(cp5.addButton("Kans").setPosition(91,548).setSize(532,193).setFont(font).setColorBackground(color(255,0,0)))
+            textFields.append(cp5.addButton("Duel").setPosition(655,548).setSize(532,193).setFont(font).setColorBackground(color(255,0,0)))
         #Vraag
         if scene == 2:
             deleteAllComponents()
             text("Vraag", 53, 37)
-            textFields.append(cp5.addButton("Verzenden").setPosition(989,700).setSize(210,51).setFont(font))
-            textFields.append(cp5.addButton("Terug").setPosition(1067,45).setSize(161,53).setFont(font))
+            textFields.append(cp5.addButton("Verzenden").setPosition(989,700).setSize(210,51).setFont(font).setColorBackground(color(255,0,0)))
+            textFields.append(cp5.addButton("Terug").setPosition(1067,45).setSize(161,53).setFont(font).setColorBackground(color(255,0,0)))
         #result
         if scene == 3:
             deleteAllComponents()
             text("Result", 400, 250)
-            textFields.append(cp5.addButton("Verzenden").setPosition(100,400).setSize(100,50).setFont(font))
+            textFields.append(cp5.addButton("Verzenden").setPosition(100,400).setSize(100,50).setFont(font).setColorBackground(color(255,0,0)))
         #Kans
         if scene == 4:
             deleteAllComponents()
             text("Kans", 48, 43)
             text("Go 3 stappen naar achter", 358, 317)
-            textFields.append(cp5.addButton("Verzenden").setPosition(1004,700).setSize(210,51).setFont(font))
+            textFields.append(cp5.addButton("Verzenden").setPosition(1004,700).setSize(210,51).setFont(font).setColorBackground(color(255,0,0)))
         #Doom
         if scene == 5:
             deleteAllComponents()
@@ -137,17 +136,17 @@ def mousePressed():
         if scene == 6:
             deleteAllComponents()
             text("Duel", 44, 20)
-            textFields.append(cp5.addButton("Terug").setPosition(1070,23).setSize(161,53).setFont(font))
+            textFields.append(cp5.addButton("Terug").setPosition(1070,23).setSize(161,53).setFont(font).setColorBackground(color(255,0,0)))
             text("VS WHO?", 141, 344)
-            textFields.append(cp5.addButton("Player 1").setPosition(476,202).setSize(329,83).setFont(font))
-            textFields.append(cp5.addButton("Player 2").setPosition(476,331).setSize(329,83).setFont(font))
-            textFields.append(cp5.addButton("Player 3").setPosition(476,460).setSize(329,83).setFont(font))
+            textFields.append(cp5.addButton("Player 1").setPosition(476,202).setSize(329,83).setFont(font).setColorBackground(color(255,0,0)))
+            textFields.append(cp5.addButton("Player 2").setPosition(476,331).setSize(329,83).setFont(font).setColorBackground(color(255,0,0)))
+            textFields.append(cp5.addButton("Player 3").setPosition(476,460).setSize(329,83).setFont(font).setColorBackground(color(255,0,0)))
        #Duel Fight
         if scene == 7:
             deleteAllComponents()
             text("Vraag", 53, 37)
-            textFields.append(cp5.addButton("Verzenden").setPosition(989,700).setSize(210,51).setFont(font))
-            textFields.append(cp5.addButton("Terug").setPosition(1067,45).setSize(161,53).setFont(font))
+            textFields.append(cp5.addButton("Verzenden").setPosition(989,700).setSize(210,51).setFont(font).setColorBackground(color(255,0,0)))
+            textFields.append(cp5.addButton("Terug").setPosition(1067,45).setSize(161,53).setFont(font).setColorBackground(color(255,0,0)))
     except ValueError:
         print(ValueError)
 def GetGameState(number):
