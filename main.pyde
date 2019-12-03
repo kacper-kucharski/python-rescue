@@ -22,16 +22,15 @@ def setup():
     interactiveObjects = []
     buttonNames = ["Cards","Leaderboards","Rules","End Game","Vraag","Doom","Kans","Duel","Verzenden","Terug","Player 1","Player 2","Player 3", "Verder"]
     mousePressed()
-    size(1280, 800)
+    fullScreen()
     
 def draw():
     pass
     
-def keyPressed():z
+def keyPressed():
     global savedPlayerName, interactiveObjects, cp5, font, doom
     if keyCode == 9:
-        # changeFocus()
-        doom.startScene(cp5, font)
+        changeFocus()
 def mousePressed():
     global cp5, scene, interactiveObjects
     try:
