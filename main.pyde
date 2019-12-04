@@ -96,38 +96,41 @@ def mousePressed():
         background(200)
         if scene == 0:
             deleteAllComponents()
-            interactiveObjects.append(cp5.addTextfield("Player 1").setPosition(50,50).setSize(150,50).setFont(font))
-            interactiveObjects.append(cp5.addTextfield("Player 2").setPosition(300,50).setSize(150,50).setFont(font))
-            interactiveObjects.append(cp5.addTextfield("Player 3").setPosition(550,50).setSize(150,50).setFont(font))
-            interactiveObjects.append(cp5.addTextfield("Player 4").setPosition(800,50).setSize(150,50).setFont(font))
-            interactiveObjects.append(cp5.addButton("Verder").setPosition(width/2 - 50,300).setSize(100,50).setFont(font))
+            interactiveObjects.append(cp5.addTextfield("Player 1").setPosition(int(width* 0.03 ), int(height* 0.06 )).setSize(int(width* 0.1 ), int(height* 0.06 )).setFont(font))
+            interactiveObjects.append(cp5.addTextfield("Player 2").setPosition(int(width* 0.21 ), int(height* 0.06 )).setSize(int(width* 0.1 ), int(height* 0.06 )).setFont(font))
+            interactiveObjects.append(cp5.addTextfield("Player 3").setPosition(int(width* 0.38 ), int(height* 0.06 )).setSize(int(width* 0.1 ), int(height* 0.06 )).setFont(font))
+            interactiveObjects.append(cp5.addTextfield("Player 4").setPosition(int(width* 0.56 ), int(height* 0.06 )).setSize(int(width* 0.1 ), int(height* 0.06 )).setFont(font))
+            interactiveObjects.append(cp5.addButton("Verder").setPosition(int(width* 0.47 ), int(height* 0.33 )).setSize(int(width* 0.07 ), int(height* 0.06 )
+
+        
+).setFont(font))
         if scene == 1:
             deleteAllComponents()
-            interactiveObjects.append(cp5.addButton("Cards").setPosition(59,59).setSize(98,52).setFont(font).setColorBackground(color(255,0,0)))
-            interactiveObjects.append(cp5.addButton("Leaderboards").setPosition(357,59).setSize(205,52).setFont(font).setColorBackground(color(255,0,0)))
-            interactiveObjects.append(cp5.addButton("Rules").setPosition(762,59).setSize(98,52).setFont(font).setColorBackground(color(255,0,0)))
-            interactiveObjects.append(cp5.addButton("End Game").setPosition(1060,59).setSize(161,59).setFont(font).setColorBackground(color(255,0,0)))
-            interactiveObjects.append(cp5.addButton("Vraag").setPosition(91,259).setSize(532,193).setFont(font).setColorBackground(color(255,0,0)))
-            interactiveObjects.append(cp5.addButton("Doom").setPosition(655,259).setSize(532,193).setFont(font).setColorBackground(color(255,0,0)))
-            interactiveObjects.append(cp5.addButton("Kans").setPosition(91,548).setSize(532,193).setFont(font).setColorBackground(color(255,0,0)))
-            interactiveObjects.append(cp5.addButton("Duel").setPosition(655,548).setSize(532,193).setFont(font).setColorBackground(color(255,0,0)))
+            interactiveObjects.append(cp5.addButton("Cards").setPosition(int(width* 0.04 ), int(height* 0.07 )).setSize(int(width* 0.07 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
+            interactiveObjects.append(cp5.addButton("Leaderboards").setPosition(int(width* 0.25 ), int(height* 0.07 )).setSize(int(width* 0.14 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
+            interactiveObjects.append(cp5.addButton("Rules").setPosition(int(width* 0.53 ), int(height* 0.07 )).setSize(int(width* 0.07 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
+            interactiveObjects.append(cp5.addButton("End Game").setPosition(int(width* 0.74 ), int(height* 0.07 )).setSize(int(width* 0.11 ), int(height* 0.07 )).setFont(font).setColorBackground(color(255,0,0)))
+            interactiveObjects.append(cp5.addButton("Vraag").setPosition(width* 0.06,height* 0.29).setSize(int(width* 0.37 ), int(height* 0.21 )).setFont(font).setColorBackground(color(255,0,0)))
+            interactiveObjects.append(cp5.addButton("Doom").setPosition(int(width* 0.45 ), int(height* 0.29 )).setSize(int(width* 0.37 ), int(height* 0.21 )).setFont(font).setColorBackground(color(255,0,0)))
+            interactiveObjects.append(cp5.addButton("Kans").setPosition(int(width* 0.06 ), int(height* 0.61 )).setSize(int(width* 0.37 ), int(height* 0.21 )).setFont(font).setColorBackground(color(255,0,0)))
+            interactiveObjects.append(cp5.addButton("Duel").setPosition(int(width* 0.45 ), int(height* 0.61 )).setSize(int(width* 0.37 ), int(height* 0.21 )).setFont(font).setColorBackground(color(255,0,0)))
         #Vraag
         if scene == 2:
             deleteAllComponents()
             text("Vraag", 53, 37)
-            interactiveObjects.append(cp5.addButton("Verzenden").setPosition(989,700).setSize(210,51).setFont(font).setColorBackground(color(255,0,0)))
-            interactiveObjects.append(cp5.addButton("Terug").setPosition(1067,45).setSize(161,53).setFont(font).setColorBackground(color(255,0,0)))
+            interactiveObjects.append(cp5.addButton("Verzenden").setPosition(int(width* 0.69 ), int(height* 0.78 )).setSize(int(width* 0.15 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
+            interactiveObjects.append(cp5.addButton("Terug").setPosition(int(width* 0.74 ), int(height* 0.05 )).setSize(int(width* 0.11 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
         #result
         if scene == 3:
             deleteAllComponents()
             text("Result", 400, 250)
-            interactiveObjects.append(cp5.addButton("Verzenden").setPosition(100,400).setSize(100,50).setFont(font).setColorBackground(color(255,0,0)))
+            interactiveObjects.append(cp5.addButton("Verzenden").setPosition(int(width* 0.07 ), int(height* 0.44 )).setSize(int(width* 0.07 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
         #Kans
         if scene == 4:
             deleteAllComponents()
             text("Kans", 48, 43)
             text("Go 3 stappen naar achter", 358, 317)
-            interactiveObjects.append(cp5.addButton("Verzenden").setPosition(1004,700).setSize(210,51).setFont(font).setColorBackground(color(255,0,0)))
+            interactiveObjects.append(cp5.addButton("Verzenden").setPosition(int(width* 0.7 ), int(height* 0.78 )).setSize(int(width* 0.15 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
         #Doom
         if scene == 5:
             deleteAllComponents()
@@ -136,17 +139,17 @@ def mousePressed():
         if scene == 6:
             deleteAllComponents()
             text("Duel", 44, 20)
-            interactiveObjects.append(cp5.addButton("Terug").setPosition(1070,23).setSize(161,53).setFont(font).setColorBackground(color(255,0,0)))
+            interactiveObjects.append(cp5.addButton("Terug").setPosition(int(width* 0.74 ), int(height* 0.03 )).setSize(int(width* 0.11 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
             text("VS WHO?", 141, 344)
-            interactiveObjects.append(cp5.addButton("Player 1").setPosition(476,202).setSize(329,83).setFont(font).setColorBackground(color(255,0,0)))
-            interactiveObjects.append(cp5.addButton("Player 2").setPosition(476,331).setSize(329,83).setFont(font).setColorBackground(color(255,0,0)))
-            interactiveObjects.append(cp5.addButton("Player 3").setPosition(476,460).setSize(329,83).setFont(font).setColorBackground(color(255,0,0)))
+            interactiveObjects.append(cp5.addButton("Player 1").setPosition(int(width* 0.33 ), int(height* 0.22 )).setSize(int(width* 0.23 ), int(height* 0.09 )).setFont(font).setColorBackground(color(255,0,0)))
+            interactiveObjects.append(cp5.addButton("Player 2").setPosition(int(width* 0.33 ), int(height* 0.37 )).setSize(int(width* 0.23 ), int(height* 0.09 )).setFont(font).setColorBackground(color(255,0,0)))
+            interactiveObjects.append(cp5.addButton("Player 3").setPosition(int(width* 0.33 ), int(height* 0.51 )).setSize(int(width* 0.23 ), int(height* 0.09 )).setFont(font).setColorBackground(color(255,0,0)))
        #Duel Fight
         if scene == 7:
             deleteAllComponents()
             text("Vraag", 53, 37)
-            interactiveObjects.append(cp5.addButton("Verzenden").setPosition(989,700).setSize(210,51).setFont(font).setColorBackground(color(255,0,0)))
-            interactiveObjects.append(cp5.addButton("Terug").setPosition(1067,45).setSize(161,53).setFont(font).setColorBackground(color(255,0,0)))
+            interactiveObjects.append(cp5.addButton("Verzenden").setPosition(int(width* 0.69 ), int(height* 0.78 )).setSize(int(width* 0.15 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
+            interactiveObjects.append(cp5.addButton("Terug").setPosition(int(width* 0.74 ), int(height* 0.05 )).setSize(int(width* 0.11 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
     except ValueError:
         print(ValueError)
 def GetGameState(number):
