@@ -1,4 +1,5 @@
 import scenes
+import classes
 add_library('controlP5')
 
 def changeFocus():
@@ -17,11 +18,12 @@ def changeFocus():
 def setup():
     color(0)
     background(200)
-    global playerName, savedPlayerName, interactiveObjects, cp5, font, scene, buttonNames
+    global playerName, savedPlayerName, interactiveObjects, cp5, font, scene, buttonNames, playersList
     font = createFont("arial",20);
     scene = -1
     cp5 = ControlP5(this)
     interactiveObjects = []
+    playersList = []
     interactiveObjects = scenes.titleScene(cp5, font, interactiveObjects)
     fullScreen()
     
@@ -37,8 +39,9 @@ def keyPressed():
         deleteAllComponents()
         scene = 0
         interactiveObjects = scenes.playerNameScene(cp5, font, interactiveObjects)
+        # print(cp5.getController("Player 1").getText())
 def mousePressed():
-    global cp5, scene, interactiveObjects
+    global cp5, scene, interactiveObjects, playersList
     try:
         for x in interactiveObjects:
             if scene == -1:
@@ -50,12 +53,21 @@ def mousePressed():
                 if cp5.getController(x.getName()).isPressed():
                     background(200)
                     x = x.getName()
-                    deleteAllComponents()
-                    
                     if x == 'Verder' and scene == 0:
+                        # check of input niet leeg is en maakt vervolgens een player object met de gegeven naam
+                        if cp5.getController("Player 1").getText() != "":
+                            playersList.append(classes.Player(cp5.getController("Player 1").getText()))
+                        if cp5.getController("Player 2").getText() != "":
+                            playersList.append(classes.Player(cp5.getController("Player 2").getText()))
+                        if cp5.getController("Player 3").getText() != "":
+                            playersList.append(classes.Player(cp5.getController("Player 3").getText()))
+                        if cp5.getController("Player 4").getText() != "":
+                            playersList.append(classes.Player(cp5.getController("Player 4").getText()))
+                        deleteAllComponents()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects)
                         break
+                    deleteAllComponents()
                     if x == "Cards" and scene == 0:
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects)

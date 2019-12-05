@@ -1,6 +1,6 @@
 # Create Player class with name, difficulty and optional currentPoints parameters.
 class Player:
-    def __init__(self, name, difficulty, currentPoints = 0):
+    def __init__(self, name, difficulty="beginner", currentPoints = 0):
         self.name = name
         self.currentPoints = currentPoints
 
@@ -23,14 +23,8 @@ class Game:
                     self.playersTurn = self.playersList[0]
                     break
 
-playersList = []
 
-playersList.append(Player("John", "Expert"))
-playersList.append(Player("Kacper", "Expert"))
-playersList.append(Player("Do", "Advanced"))
-playersList.append(Player("Rey", "Advanced"))
-
-game = Game(len(playersList), playersList)
-print(game.playersTurn.name)
-game.changePlayerTurn()
-print(game.playersTurn.name)
+# game = Game(len(playersList), playersList)
+# print(game.playersTurn.name)
+# game.changePlayerTurn()
+# print(game.playersTurn.name)

@@ -1,5 +1,5 @@
 def titleScene(cp5, font, interactiveObjects):
-    img = loadImage('../assets/titlePicture.jpg')
+    img = loadImage('../assets/titlePicture.png')
     image(img, 0, 0, width, height)
     font = createFont('arial', 50)
     textFont(font)
