@@ -131,7 +131,8 @@ def deleteAllComponents():
     global cp5
     for i in interactiveObjects:
         try:
+            # interactiveObjects.getController().remove()
             cp5.getController(i.getName()).remove()
-            # if cp5.getController(i.getName()).get()
+            # print(
         except:
             pass
