@@ -18,19 +18,19 @@ if scene == 0:
         #Vraag
         if scene == 2:
             deleteAllComponents()
-            text("Vraag", 53, 37)
+            text("Vraag", int(width* 0.03 ), int(height* 0.03 ))
             interactiveObjects.append(cp5.addButton("Verzenden").setPosition(int(width* 0.52 ), int(height* 0.65 )).setSize(int(width* 0.11 ), int(height* 0.05 )).setFont(font).setColorBackground(color(255,0,0)))
             interactiveObjects.append(cp5.addButton("Terug").setPosition(int(width* 0.56 ), int(height* 0.04 )).setSize(int(width* 0.08 ), int(height* 0.05 )).setFont(font).setColorBackground(color(255,0,0)))
         #result
         if scene == 3:
             deleteAllComponents()
-            text("Result", 400, 250)
+            text("Result", int(width* 0.21 ), int(height* 0.23 ))
             interactiveObjects.append(cp5.addButton("Verzenden").setPosition(int(width* 0.05 ), int(height* 0.37 )).setSize(int(width* 0.05 ), int(height* 0.05 )).setFont(font).setColorBackground(color(255,0,0)))
         #Kans
         if scene == 4:
             deleteAllComponents()
-            text("Kans", 48, 43)
-            text("Go 3 stappen naar achter", 358, 317)
+            text("Kans", int(width* 0.03 ), int(height* 0.04 ))
+            text("Go 3 stappen naar achter", int(width* 0.19 ), int(height* 0.29 ))
             interactiveObjects.append(cp5.addButton("Verzenden").setPosition(int(width* 0.52 ), int(height* 0.65 )).setSize(int(width* 0.11 ), int(height* 0.05 )).setFont(font).setColorBackground(color(255,0,0)))
         #Doom
         if scene == 5:
@@ -39,15 +39,15 @@ if scene == 0:
         #Duel Start Screen
         if scene == 6:
             deleteAllComponents()
-            text("Duel", 44, 20)
+            text("Duel", int(width* 0.02 ), int(height* 0.02 ))
             interactiveObjects.append(cp5.addButton("Terug").setPosition(int(width* 0.56 ), int(height* 0.02 )).setSize(int(width* 0.08 ), int(height* 0.05 )).setFont(font).setColorBackground(color(255,0,0)))
-            text("VS WHO?", 141, 344)
+            text("VS WHO?", int(width* 0.07 ), int(height* 0.32 ))
             interactiveObjects.append(cp5.addButton("Player 1").setPosition(int(width* 0.25 ), int(height* 0.19 )).setSize(int(width* 0.17 ), int(height* 0.08 )).setFont(font).setColorBackground(color(255,0,0)))
             interactiveObjects.append(cp5.addButton("Player 2").setPosition(int(width* 0.25 ), int(height* 0.31 )).setSize(int(width* 0.17 ), int(height* 0.08 )).setFont(font).setColorBackground(color(255,0,0)))
             interactiveObjects.append(cp5.addButton("Player 3").setPosition(int(width* 0.25 ), int(height* 0.43 )).setSize(int(width* 0.17 ), int(height* 0.08 )).setFont(font).setColorBackground(color(255,0,0)))
        #Duel Fight
         if scene == 7:
             deleteAllComponents()
-            text("Vraag", 53, 37)
+            text("Vraag", int(width* 0.03 ), int(height* 0.03 ))
             interactiveObjects.append(cp5.addButton("Verzenden").setPosition(int(width* 0.52 ), int(height* 0.65 )).setSize(int(width* 0.11 ), int(height* 0.05 )).setFont(font).setColorBackground(color(255,0,0)))
             interactiveObjects.append(cp5.addButton("Terug").setPosition(int(width* 0.56 ), int(height* 0.04 )).setSize(int(width* 0.08 ), int(height* 0.05 )).setFont(font).setColorBackground(color(255,0,0)))

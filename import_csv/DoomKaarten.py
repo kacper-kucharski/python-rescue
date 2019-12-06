@@ -1,9 +1,7 @@
 import csv
+import random
 
 with open('DoomKaarten.csv') as doomKaarten:
     doomKaarten = csv.reader(doomKaarten, delimiter=',')
-    line_count = 0
-    for row in doomKaarten:
-        print(row[0])
-        line_count += 1
-print(line_count)
+    list_cards = list(doomKaarten)
+    print(list_cards[random.randint(0 , len(list_cards) - 1)])
