@@ -15,6 +15,7 @@ class Game:
         self.maxPoints = maxPoints
         self.playersList = playerList
         self.playersTurn = playerList[0]
+        self.duelAgainst = None
 
     # Looks up the current player in the list and gives the turn to the next player, if last player goes back to first player
     def changePlayerTurn(self):
