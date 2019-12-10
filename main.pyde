@@ -150,7 +150,7 @@ def mousePressed():
                         scene = 6
                         interactiveObjects = scenes.duelScene(cp5, font, interactiveObjects, game)
                         break
-                    if x == "Player 1" or x == "Player 2" or x == "Player 3":
+                    if x == _players[0]:
                         scene = 7
                         interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game)
                         break
