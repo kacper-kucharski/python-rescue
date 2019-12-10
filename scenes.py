@@ -1,7 +1,5 @@
 # scene = -1
 def titleScene(cp5, font, interactiveObjects):
-    # img = loadImage('../assets/titlePicture.png')
-    # image(img, 0, 0, width, height)
     font = createFont('arial', 50)
     textFont(font)
     text("Druk ergens om verder te gaan!", width * 0.25, height* 0.75 + int(width* 0.05 ), int(height* 0.05 ))
