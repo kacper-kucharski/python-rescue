@@ -3,10 +3,13 @@ import random
 
 # Create Player class with name, difficulty and optional currentPoints parameters.
 class Player:
-    def __init__(self, name, difficulty="beginner", currentPoints = 0):
+    def __init__(self, name, difficulty="makkelijk", currentPoints = 0, Exp = 5):
         self.name = name
         self.difficulty = difficulty
         self.currentPoints = currentPoints
+        self.Exp = Exp
+        self.lastQuestion = None
+        self.lastAwnser = None
 
 # Create Game class with changePlayerTurn function and parameters like amount of player, list of all players and optional maxPoints option.
 class Game: 
