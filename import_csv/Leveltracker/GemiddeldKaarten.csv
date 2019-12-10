@@ -1,0 +1,33 @@
+sum = 7 // 2 wat is sum?,sum is 4,sum is 2,sum is 3,,gemiddeld,sum is 3
+Wat is de uitkomst van True and False?,TRUE,FALSE,,,gemiddeld,FALSE
+Wat is de uitkomst van True or False?,TRUE,FALSE,,,gemiddeld,TRUE
+x = input('Write something') Wat doet de functie input()?,Het laat de user in de console schrijven,Het print wat de user geschreven heeft.,,,gemiddeld,Het laat de user in de console schrijven
+range(10) Wat doet deze functie?,Het print het alle cijfers van 0 tot 10,Het print alle cijfers van 1 tot 9,Het gaat vanaf 0 tot het aangegeven nummer door,,gemiddeld,Het gaat vanaf 0 tot het aangegeven nummer door
+if num == 0: heads += 1 Wat doet deze code?,Er komt een error omdat += een onbekende syntax is,Num wordt 0 en heads wordt 1,Als num 0 is dan gaat head met 1 omhoog,,gemiddeld,Als num 0 is dan gaat head met 1 omhoog
+"round(10.1234, 2) Wat doet deze functie?",Het rond 10.1234 naar 10.12 af,Het rond 10.1234 naar 10.0 af,,,gemiddeld,Het rond 10.1234 naar 10.0 af
+housenumber = int(input('vul je huisnummer in. ' )) Wat is de waarde van housenumber zodra 1234 is ingevuld?,Deze code klopt niet,'1234',vul je huisnummer in.',1234,gemiddeld,1234
+response = input() wat is de response als dit uitgevoerd wordt?,'input',Hetgeen wat de user ingevoerd,Deze code kan niet,input(),gemiddeld,Hetgeen wat de user ingevoerd
+x = 1 y = 2 wat gebeurt er zodra de code x = y en y = x wordt uitgevoerd?,x = 1 y = 1,x = 2 y = 2,x = 2 y = 1,,gemiddeld,x = 2 y = 2
+"Wat is hier de operator? ""x>y""","x, y",>,,,gemiddeld,>
+"Wat is hier de operand? ""True and False""","True, False",and,,,gemiddeld,and
+"Wat is hier de operand? ""True and True""","True, False",and,,,gemiddeld,"True, False"
+"Wat is hier de operand? ""10 or 0""","10, 0",or,,,gemiddeld,"10, 0"
+print('Hallo wereld') wat doet dit?,maakt een variabele Hallo wereld aan,print in de console Hallo wereld,zet dit in het geheugen van de computer,,makkelijk,print in de console Hallo wereld
+print(2 * 3) wat doet dit?,maakt een variabele met het cijfer 6 aan,print in de console het cijfer 6,zet dit in het geheugen van de computer,,makkelijk,print in de console het cijfer 6
+sum = 2 * 3 wat is sum?,sum is 6,het cijfer 6 wordt geprint,,,makkelijk,sum is 6
+jaartal = 2001 jaartal = 2002 geld = 200 Geld = 250 wat is de variabele jaartal en wat is de variabele geld?,jaartal = 2002 en geld = 200,jaartal = 2002 en geld = 250,Jaartal = 2001 en geld = 200,,makkelijk,FALSE
+Hoe geef je commentaar weer in Python?,**,"""",#,,makkelijk,#
+heads = 0 Wat doet deze code?,Maakt een variabele aan met het nummer 0,Het checkt of de heads variabele 0 is,,,makkelijk,Maakt een variabele aan met het nummer 0
+x = 3+2 * 4,11,20,14,,makkelijk,11
+3 * 2 + 10 * 5 - 3,53,56,177,,makkelijk,53
+"Wat doet de operand ""OR""?",Dit is waar als er één daadwerkelijk waar is.,Dit is waar het eerste antwoord waar is.,Dit is waar het tweede antwoord waar is.,,makkelijk,Dit is waar als er één daadwerkelijk waar is.
+"Wat doet de operand ""AND""?","Deze operator is ""True"" zodra aan beide kanten van de operator ""True"" komt","Dit is waar zodra het antwoord beide ""False"" geeft.","Dit is waar zodra een van de antwoorden ""True"" is.",,makkelijk,"Deze operator is ""True"" zodra aan beide kanten van de operator ""True"" komt"
+"Wat doet de functie ""while""?","Zolang de operator ""True"" blijft gaat de functie door. ","Zolang de operator ""False"" blijft gaat de functie door.","Zolang er een nummer gegeven wordt blijft dit ""True"".",,makkelijk,"Zolang de operator ""True"" blijft gaat de functie door. "
+"Wat doet de functie ""if""?","Als de operator ""True"" is dan wordt de code eronder uitgevoerd.",Als er iets klaar is dan werkt deze if statement.,Als er iets niet klopt gaat dit uitgevoerd worden.,,makkelijk,"Als de operator ""True"" is dan wordt de code eronder uitgevoerd."
+"Wat doet de functie ""for""?",Dit wordt herhaald zovaak als dat het aangegeven is in de range(),"Dit wordt herhaald, ookal wordt er niks gegeven.",,,makkelijk,Dit wordt herhaald zovaak als dat het aangegeven is in de range()
+Wat is een operator?,Een operator is een getal dat je invuld in een lijn code.,Operators zijn de symbolen die die in Python de wiskundige bewerkingen uitvoeren.,,,makkelijk,Operators zijn de symbolen die die in Python de wiskundige bewerkingen uitvoeren.
+Wat is een Variabele?,Dit is een functie waaraan je dingen kan toevoegen,Dit is iets waar je een waarde aan kan toevoegen,,,makkelijk,Dit is iets waar je een waarde aan kan toevoegen
+"Wat is het verschil tussen de operators: ""/"" en ""//""?","""/"" deelt het getal door en houdt een float waarde over, ""//"" zorgt ervoor dat het getal naar beneden word afgerond","""/"" deelt het getal door en houdt een int waarde over, ""//"" zorgt evoor dat het getal altijd door 2 wordt gedeelt",,,makkelijk,"""/"" deelt het getal door en houdt een float waarde over, ""//"" zorgt ervoor dat het getal naar beneden word afgerond"
+"Wat is het verschil tussen de operators: ""="" en ""==""?","""="" zorgt ervoor dat een variabele wordt ingevuld en ""=="" kijkt of de eerste operand gelijk is aan de tweede operand.","""="" zorgt ervoor dat een functie wordt ingevuld en ""=="" kijkt of het eerste getal gelijk is aan de tweede operand.",,,makkelijk,"""="" zorgt ervoor dat een variabele wordt ingevuld en ""=="" kijkt of de eerste operand gelijk is aan de tweede operand."
+Wat doet \n?,Dit zorgt ervoor dat je een new-line kan toevoegen aan een string,Zo voeg je een tab aan een string,Dit is een afkorting om iets aan te roepen,,makkelijk,Dit zorgt ervoor dat je een new-line kan toevoegen aan een string
+Wat doet print()?,Dit zorgt ervoor dat wat er ingevoerd wordt in de console geprint wordt.,Dit voegt iets toe aan een variabele,Dit print je document uit,,makkelijk,Dit zorgt ervoor dat wat er ingevoerd wordt in de console geprint wordt.
