@@ -1,0 +1,21 @@
+for x in range(10): print('Hello world!') wat doet dit stuk code?,Het zoekt x in range(10) en print Hello World! uit,Het print 'Hello world!' 10 keer,Het print 'Hello world!' als x = 10,,moeilijk,Het print 'Hello world!' 10 keer
+"random.randint(0,1) Wat doet deze functie?",Het kiest een random integer tussen 0 en 1,"Het kiest een random getal met ,1 aan het einde",,,moeilijk,Als num 0 is dan gaat head met 1 omhoog
+x = 0 while x < 10: x = x + 1 Hoe vaak wordt deze code uitgevoerd?,10 keer,9 keer ,één keer,11 keer,moeilijk,10 keer
+s = '*\n*\n*\n*' print(s) Wat print deze code uit?,* * * * ,*\n*\n*\n*,****,* (new-line) * (new-line) * (new-line) *,moeilijk,* (new-line) * (new-line) * (new-line) *
+n = 2 s = '' while n > 0: s = s + 'Ha\n' n = n - 1 Wat wordt s wanneer de code wordt uitgevoerd?,'Ha\nHa\nHa\n','Ha Ha Ha',Ha (new-line) Ha (new-line) Ha (new-line)',Ha Ha',moeilijk,Ha (new-line) Ha (new-line) Ha (new-line)'
+z = -5 w = 2 wat is  1 + z * w?,-8,-9,-15,,moeilijk,-9
+x = 4 while <= 4: x += 1 Wat is x nadat je dit hebt uitgevoerd?,5,4,9,,moeilijk,5
+sum = 7 // 2 wat is sum?,sum is 4,sum is 2,sum is 3,,gemiddeld,sum is 3
+Wat is de uitkomst van True and False?,TRUE,FALSE,,,gemiddeld,FALSE
+Wat is de uitkomst van True or False?,TRUE,FALSE,,,gemiddeld,TRUE
+x = input('Write something') Wat doet de functie input()?,Het laat de user in de console schrijven,Het print wat de user geschreven heeft.,,,gemiddeld,Het laat de user in de console schrijven
+range(10) Wat doet deze functie?,Het print het alle cijfers van 0 tot 10,Het print alle cijfers van 1 tot 9,Het gaat vanaf 0 tot het aangegeven nummer door,,gemiddeld,Het gaat vanaf 0 tot het aangegeven nummer door
+if num == 0: heads += 1 Wat doet deze code?,Er komt een error omdat += een onbekende syntax is,Num wordt 0 en heads wordt 1,Als num 0 is dan gaat head met 1 omhoog,,gemiddeld,Als num 0 is dan gaat head met 1 omhoog
+"round(10.1234, 2) Wat doet deze functie?",Het rond 10.1234 naar 10.12 af,Het rond 10.1234 naar 10.0 af,,,gemiddeld,Het rond 10.1234 naar 10.0 af
+housenumber = int(input('vul je huisnummer in. ' )) Wat is de waarde van housenumber zodra 1234 is ingevuld?,Deze code klopt niet,'1234',vul je huisnummer in.',1234,gemiddeld,1234
+response = input() wat is de response als dit uitgevoerd wordt?,'input',Hetgeen wat de user ingevoerd,Deze code kan niet,input(),gemiddeld,Hetgeen wat de user ingevoerd
+x = 1 y = 2 wat gebeurt er zodra de code x = y en y = x wordt uitgevoerd?,x = 1 y = 1,x = 2 y = 2,x = 2 y = 1,,gemiddeld,x = 2 y = 2
+"Wat is hier de operator? ""x>y""","x, y",>,,,gemiddeld,>
+"Wat is hier de operand? ""True and False""","True, False",and,,,gemiddeld,and
+"Wat is hier de operand? ""True and True""","True, False",and,,,gemiddeld,"True, False"
+"Wat is hier de operand? ""10 or 0""","10, 0",or,,,gemiddeld,"10, 0"
