@@ -1,5 +1,6 @@
 # scene = -1
 def titleScene(cp5, font, interactiveObjects):
+    image(loadImage('../assets/titlePicture.jpg'),0,0,width,height)
     font = createFont('arial', 50)
     textFont(font)
     text("Druk ergens om verder te gaan!", width * 0.25, height* 0.75 + int(width* 0.05 ), int(height* 0.05 ))
@@ -58,10 +59,9 @@ def duelScene(cp5, font, interactiveObjects, game):
     buttonHeight = [height* 0.19, height* 0.31, height* 0.43]
     _players = []
     for x in game.playersList:
-        print(x)
         if x.name != game.playersTurn.name:
             _players.append(x)
-    for x in range(len(buttonHeight)):
+    for x in range(len(_players)):
         interactiveObjects.append(cp5.addButton(str(_players[x].name)).setPosition(int(width* 0.25 ), int(buttonHeight[x])).setSize(int(width* 0.17 ), int(height* 0.08 )).setFont(font).setColorBackground(color(255,0,0)))
     return interactiveObjects
 # scene = 3
