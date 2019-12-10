@@ -37,11 +37,11 @@ class Game:
         with open('./import_csv/DoomKaarten.csv') as doomKaarten:
             doomKaarten = csv.reader(doomKaarten, delimiter=',')
             list_cards = list(doomKaarten)
-            return list_cards[random.randint(0 , len(list_cards) - 1)]
+            return str(list_cards[random.randint(0 , len(list_cards) - 1)]).strip("[]'")
         
     def getKans(self):
-        with open('./import_csv/KansKaarten.csv') as doomKaarten:
-            doomKaarten = csv.reader(doomKaarten, delimiter=',')
-            list_cards = list(doomKaarten)
-            return list_cards[random.randint(0 , len(list_cards) - 1)]
+        with open('./import_csv/KansKaarten.csv') as kansKaarten:
+            kansKaarten = csv.reader(kansKaarten, delimiter=',')
+            list_cards = list(kansKaarten)
+            return str(list_cards[random.randint(0 , len(list_cards) - 1)]).strip("[]'")
         

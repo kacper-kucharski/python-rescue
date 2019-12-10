@@ -3,21 +3,20 @@ import classes
 add_library('controlP5')
 
 def changeFocus():
-    global interactiveObjects
-    len(interactiveObjects)
+    global interactiveObjects, cp5
+    textFields = []
     for i in interactiveObjects:
-        try:
-            if interactiveObjects[i].isFocus() == True:
-                if i == 4:
-                    interactiveObjects[i].setFocus(False)
-                    interactiveObjects[1].setFocus(True)
-                    break
-                interactiveObjects[i].setFocus(False)
-                interactiveObjects[i+1].setFocus(True)
+        if isinstance(i, Textfield):
+            textFields.append(i)
+    for i in range(len(textFields)):
+        if textFields[i].isFocus():
+            if i == 3:
+                textFields[i].setFocus(False)
+                textFields[0].setFocus(True)
+                break
+            textFields[i].setFocus(False)
+            textFields[i+1].setFocus(True)
             break
-        except:
-            pass
-        
 def setup():
     color(0)
     background(200)
@@ -58,6 +57,7 @@ def mousePressed():
                     background(200)
                     x = x.getName()
                     if x == 'Verder' and scene == 0:
+                        same = 0
                         # check of input niet leeg is en maakt vervolgens een player object met de gegeven naam
                         if cp5.getController("Player 1").getText() != "":
                             playersList.append(classes.Player(cp5.getController("Player 1").getText()))
@@ -67,11 +67,21 @@ def mousePressed():
                             playersList.append(classes.Player(cp5.getController("Player 3").getText()))
                         if cp5.getController("Player 4").getText() != "":
                             playersList.append(classes.Player(cp5.getController("Player 4").getText()))
+                        # for i in playerList:
+                        #     print(i.name)
+                            # for y in playerList:
+                            #     print(x.name,y.name)
+                            #     if x.name == y.name:
+                            #         same == 1
+                            
                         if len(playersList) >= 2:
                             deleteAllComponents()
                             scene = 1
                             game = classes.Game(len(playersList), playersList)
                             interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
+                        elif same == 1:
+                            playersList = []
+                            text("Er moeten wel identieke namen ingevoerd worden.", width * 0.01, height/2)   
                         else:
                             playersList = []
                             text("Er moet wel meer dan 1 persoon ingevuld worden om het spel te beginnnen.", width * 0.01, height/2)    
@@ -142,7 +152,7 @@ def mousePressed():
                         break
                     if x == "Player 1" or x == "Player 2" or x == "Player 3":
                         scene = 7
-                        interactiveObjects = scenes.duelresultScene(cp5, font, interactiveObjects, game)
+                        interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game)
                         break
                     if x == "Change turn":
                         game.changePlayerTurn()
@@ -151,6 +161,7 @@ def mousePressed():
             except:
                 print(sys.exc_info()[0])
                 pass
+                
     except:
         pass      
 def deleteAllComponents():
