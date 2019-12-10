@@ -1,6 +1,6 @@
 # scene = -1
 def titleScene(cp5, font, interactiveObjects):
-    image(loadImage('../assets/titlePicture.jpg'),0,0,width,height)
+    # image(loadImage('../assets/titlePicture.jpg'),0,0,width,height)
     font = createFont('arial', 50)
     textFont(font)
     text("Druk ergens om verder te gaan!", width * 0.25, height* 0.75 + int(width* 0.05 ), int(height* 0.05 ))
@@ -73,6 +73,7 @@ def resultScene(cp5, font, interactiveObjects, game):
 def duelQuestionScene(cp5, font, interactiveObjects, game):
     vraag = game.getVraag()
     text("Vraag", int(width* 0.03 ), int(height* 0.03 ))
+    text("Je speelt tegen" + game.duelAgainst.name, int(width* 0.03 ), int(height* 0.30 ))
     interactiveObjects.append(cp5.addRadioButton("radioButton", width/2, height/2).setSize(50,50).setItemsPerRow(1).setSpacingColumn(35).addItem(str(vraag[1]), 1.0).addItem(str(vraag[2]), 2.0).addItem(str(vraag[3]), 3.0).addItem(str(vraag[4]), 4.0))
     interactiveObjects.append(cp5.addButton("Verzenden").setPosition(int(width* 0.52 ), int(height* 0.65 )).setSize(int(width* 0.11 ), int(height* 0.05 )).setFont(font).setColorBackground(color(255,0,0)))
     interactiveObjects.append(cp5.addButton("Terug").setPosition(int(width* 0.56 ), int(height* 0.04 )).setSize(int(width* 0.08 ), int(height* 0.05 )).setFont(font).setColorBackground(color(255,0,0)))
