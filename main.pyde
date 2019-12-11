@@ -56,6 +56,7 @@ def mousePressed():
                 if cp5.getController(x.getName()).isPressed():
                     background(200)
                     x = x.getName()
+                    
                     if x == 'Verder' and scene == 0:
                         same = 0
                         # check of input niet leeg is en maakt vervolgens een player object met de gegeven naam
@@ -81,7 +82,7 @@ def mousePressed():
                             interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         elif same == 1:
                             playersList = []
-                            text("Er moeten wel identieke namen ingevoerd worden.", width * 0.01, height/2)   
+                            text("Er moeten wel unieke namen ingevoerd worden.", width * 0.01, height/2)   
                         else:
                             playersList = []
                             text("Er moet wel meer dan 1 persoon ingevuld worden om het spel te beginnnen.", width * 0.01, height/2)    
@@ -118,19 +119,7 @@ def mousePressed():
                         scene = 6
                         interactiveObjects = scenes.duelScene(cp5, font, interactiveObjects, game)
                         break
-                    if x == "Verzenden" and scene == 2:
-                        scene = 3
-                        interactiveObjects = scenes.resultScene(cp5, font, interactiveObjects, game)
-                        break
-                    if x == "Verzenden" and scene == 4:
-                        scene = 1
-                        interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
-                        break
-                    if x == "Verzenden" and scene == 5:
-                        scene = 1
-                        interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
-                        break
-                    if x == "Verzenden" and scene == 3:
+                    if x == "Verzenden" and scene == 4 or scene == 5 or scene == 3:
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
@@ -138,11 +127,11 @@ def mousePressed():
                         scene = 3
                         interactiveObjects = scenes.resultScene(cp5, font, interactiveObjects, game)
                         break
-                    if x == "Terug" and scene == 2:
+                    if x == "Verder" and scene == 8:
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
-                    if x == "Terug" and scene == 6:
+                    if x == "Terug" and scene == 2 or scene == 6:
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
@@ -158,9 +147,22 @@ def mousePressed():
                         game.changePlayerTurn()
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
+                     # This checks if the awnser commited is right or wrong.
+                    if scene == 2:
+                    #compares string of the button with the string of the awnser
+                        if str(x) == str(game.playersTurn.lastQuestion[6]):  
+                            scene = 8
+                            game.playersTurn.currentPoints += 1
+                            game.changePlayerTurn()
+                            interactiveObjects = scenes.resultSceneRight(cp5, font, interactiveObjects, game)
+                        else:  
+                            print('fout!')
+                            scene = 8
+                            game.changePlayerTurn()
+                            interactiveObjects = scenes.resultSceneWrong(cp5, font, interactiveObjects, game)
+                    
             except:
-                print(sys.exc_info()[0])
-                pass
+                print(sys.exc_info()[1])
                 
     except:
         pass      

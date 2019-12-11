@@ -35,7 +35,8 @@ class Game:
         with open('./import_csv/Vraagkaarten.csv') as vraagKaarten:
             vraagKaarten = csv.reader(vraagKaarten, delimiter=',')
             list_questions = list(vraagKaarten)
-            return list_questions[random.randint(0, len(list_questions) - 1)]
+            self.playersTurn.lastQuestion = list_questions[random.randint(0, len(list_questions) - 1)]
+            return self.playersTurn.lastQuestion
         
     def getDoom(self):
         with open('./import_csv/DoomKaarten.csv') as doomKaarten:
