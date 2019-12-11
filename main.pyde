@@ -34,7 +34,7 @@ def draw():
     pass
     
 def keyPressed():
-    global savedPlayerName, interactiveObjects, cp5, font, doom, scene, game
+    global savedPlayerName, interactiveObjects, cp5, font, doom, scene, game, duelPressed
     if keyCode == 9 and scene == 0:
         changeFocus()
     if scene == -1:
@@ -43,8 +43,16 @@ def keyPressed():
         scene = 0
         interactiveObjects = scenes.playerNameScene(cp5, font, interactiveObjects)
         # print(cp5.getController("Player 1").getText())
+    if key == "a" and scene == 7 and duelPressed == False:
+        print(game.playersTurn.name)
+        text(game.playersTurn.name + " was first! He can now answer the question.", int(width* 0.1 ), int(height* 0.5 ))
+        duelPressed = True
+    if key == "l" and scene == 7 and duelPressed == False:
+        print(game.duelAgainst.name)
+        text(game.duelAgainst.name + " was first! He can now answer the question.", int(width* 0.1 ), int(height* 0.5 ))
+        duelPressed = True
 def mousePressed():
-    global cp5, scene, interactiveObjects, playersList, game
+    global cp5, scene, interactiveObjects, playersList, game, duelPressed
     try:
         for x in interactiveObjects:
             if scene == -1:
@@ -139,8 +147,27 @@ def mousePressed():
                         scene = 6
                         interactiveObjects = scenes.duelScene(cp5, font, interactiveObjects, game)
                         break
-                    if x == "Player 1" or x == "Player 2" or x == "Player 3":
+                    if x == game.playersList[0].name:
                         scene = 7
+                        game.duelAgainst = game.playersList[0]
+                        interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game)
+                        break
+                    if x == game.playersList[1].name:
+                        scene = 7
+                        duelPressed = False
+                        game.duelAgainst = game.playersList[1]
+                        interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game)
+                        break
+                    if x == game.playersList[2].name:
+                        scene = 7
+                        duelPressed = False
+                        game.duelAgainst = game.playersList[2]
+                        interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game)
+                        break
+                    if x == game.playersList[3].name:
+                        scene = 7
+                        duelPressed = False
+                        game.duelAgainst = game.playersList[3]
                         interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game)
                         break
                     if x == "Change turn":
