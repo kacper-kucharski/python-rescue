@@ -82,7 +82,7 @@ def mousePressed():
                             #     print(x.name,y.name)
                             #     if x.name == y.name:
                             #         same == 1
-                            
+                        # If there are more than 1 player in the playerlist, it will initialize the game and go towards the main menu. 
                         if len(playersList) >= 2:
                             deleteAllComponents()
                             scene = 1
@@ -97,93 +97,109 @@ def mousePressed():
                         break
                     deleteAllComponents()
                     if x == "Cards" and scene == 0:
+                        deleteAllComponents()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
                     if x == "Leaderboards" and scene == 0:
+                        deleteAllComponents()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
                     if x == "Rules" and scene == 0:
+                        deleteAllComponents()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
-                    if x == "End Game":
+
                         exit()
                         break
                     if x == "Vraag":
+                        deleteAllComponents()
                         scene = 2
                         interactiveObjects = scenes.vraagScene(cp5, font, interactiveObjects, game)
                         break
                     if x == "Doom":
+                        deleteAllComponents()
                         interactiveObject = scenes.doomScene(cp5, font, interactiveObjects, game)
                         scene = 5
                         break
                     if x == "Kans":
+                        deleteAllComponents()
                         scene = 4
                         interactiveObject = scenes.kansScene(cp5, font, interactiveObjects, game)
                         break
                     if x == "Duel":
+                        deleteAllComponents()
                         scene = 6
                         interactiveObjects = scenes.duelScene(cp5, font, interactiveObjects, game)
                         break
                     if x == "Verzenden" and scene == 4 or scene == 5 or scene == 3:
+                        deleteAllComponents()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
                     if x == "Verzenden" and scene == 7:
+                        deleteAllComponents()
                         scene = 3
                         interactiveObjects = scenes.resultScene(cp5, font, interactiveObjects, game)
                         break
                     if x == "Verder" and scene == 8:
+                        deleteAllComponents()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
                     if x == "Terug" and scene == 2 or scene == 6:
+                        deleteAllComponents()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
                     if x == "Terug" and scene == 7:
+                        deleteAllComponents()
                         scene = 6
                         interactiveObjects = scenes.duelScene(cp5, font, interactiveObjects, game)
                         break
                     if x == game.playersList[0].name:
+                        deleteAllComponents()
                         scene = 7
                         game.duelAgainst = game.playersList[0]
                         interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game)
                         break
                     if x == game.playersList[1].name:
+                        deleteAllComponents()
                         scene = 7
                         duelPressed = False
                         game.duelAgainst = game.playersList[1]
                         interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game)
                         break
                     if x == game.playersList[2].name:
+                        deleteAllComponents()
                         scene = 7
                         duelPressed = False
                         game.duelAgainst = game.playersList[2]
                         interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game)
                         break
                     if x == game.playersList[3].name:
+                        deleteAllComponents()
                         scene = 7
                         duelPressed = False
                         game.duelAgainst = game.playersList[3]
                         interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game)
                         break
                     if x == "Change turn":
+                        deleteAllComponents()
                         game.changePlayerTurn()
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
                      # This checks if the awnser commited is right or wrong.
                     if scene == 2:
                     #compares string of the button with the string of the awnser
-                        if str(x) == str(game.playersTurn.lastQuestion[6]):  
+                        if str(x) == str(game.playersTurn.lastQuestion[6]):
                             scene = 8
                             game.playersTurn.currentPoints += 1
                             game.changePlayerTurn()
                             interactiveObjects = scenes.resultSceneRight(cp5, font, interactiveObjects, game)
                         else:  
-                            print('fout!')
                             scene = 8
                             game.changePlayerTurn()
                             interactiveObjects = scenes.resultSceneWrong(cp5, font, interactiveObjects, game)
