@@ -31,25 +31,21 @@ class Game:
                 else:
                     self.playersTurn = self.playersList[0]
                     break
-
-<<<<<<< HEAD
 # Import all questions and answers and sort them by difficulty 
     def importKaarten(naam):
         with open(naam+'.csv') as kaarten:
             kaarten = csv.reader(kaarten, delimiter=',')
-            return list(kaarten)        
+            return list(kaarten)
+
     list_makkelijk = importKaarten('import_csv/Leveltracker/MakkelijkKaarten')
     list_gemiddeld = importKaarten('import_csv/Leveltracker/GemiddeldKaarten')
-    list_moeilijk = importKaarten('import_csv/Leveltracker/MoeilijkKaarten')
+    list_moeilijk = importKaarten('import_csv/Leveltracker/MoeilijkKaarten')        
 
 # Return a question based on the players' level
-=======
-    # Get a random question from an csv file with all the questions
->>>>>>> 450e1e75f0e86f008a7447cef8af7e81c5dbd95d
     def getVraag(self):
-        if self.playerturn.difficulty == 'makkelijk':
+        if self.playersTurn.difficulty == 'makkelijk':
             x = list_makkelijk
-        elif self.playerturn.difficulty == 'gemiddeld':
+        elif self.playersTurn.difficulty == 'gemiddeld':
             x = list_gemiddeld
         else:
             x = list_moeilijk
