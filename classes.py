@@ -13,8 +13,8 @@ class Player:
 
 # Create Game class with changePlayerTurn function and parameters like amount of player, list of all players and optional maxPoints option.
 class Game: 
-    def __init__(self, amountOfPlayers, playerList, maxPoints = 4):
-        self.amountOfPlayers = amountOfPlayers
+    def __init__(self, playerList, maxPoints = 4):
+        self.amountOfPlayers = len(playerList)
         self.maxPoints = maxPoints
         self.playersList = playerList
         self.playersTurn = playerList[0]
@@ -24,12 +24,14 @@ class Game:
     def changePlayerTurn(self):
         for x in range(len(self.playersList)):
             if self.playersTurn.name == self.playersList[x].name:
+                print(x, len(self.playersList)- 1)
                 if x != len(self.playersList)-1:
                     self.playersTurn = self.playersList[x+1]
                     break
                 else:
                     self.playersTurn = self.playersList[0]
                     break
+
     # Get a random question from an csv file with all the questions
     def getVraag(self):
         with open('./import_csv/Vraagkaarten.csv') as vraagKaarten:
