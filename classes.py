@@ -69,3 +69,12 @@ class Game:
                 else:
                     self.playersTurn = self.playersList[0]
                     break
+                
+    def level_change():
+        if self.Exp < 4:
+            self.difficulty = 'makkelijk'
+        elif self.Exp >= 4 and self.currentPoints < 8:
+            self.difficulty = 'gemiddeld'
+        else:
+            self.difficulty = 'moeilijk'
+        
