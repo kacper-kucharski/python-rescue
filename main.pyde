@@ -123,6 +123,10 @@ def mousePressed():
                         scene = 4
                         interactiveObject = scenes.kansScene(cp5, font, interactiveObjects, game)
                         break
+                    if x == "Pak een doomkaart!" and scene == 4:
+                        interactiveObject = scenes.doomScene(cp5, font, interactiveObjects, game)
+                        scene = 5
+                        break
                     if x == "Duel":
                         scene = 6
                         interactiveObjects = scenes.duelScene(cp5, font, interactiveObjects, game)
@@ -180,12 +184,13 @@ def mousePressed():
                         if str(x) == str(game.playersTurn.lastQuestion[6]):  
                             scene = 8
                             game.playersTurn.currentPoints += 1
+                            game.playersTurn.Exp += 1
                             game.changePlayerTurn()
                             interactiveObjects = scenes.resultSceneRight(cp5, font, interactiveObjects, game)
                         else:  
-                            print('fout!')
                             scene = 8
                             game.changePlayerTurn()
+                            game.playersTurn.Exp -= 1
                             interactiveObjects = scenes.resultSceneWrong(cp5, font, interactiveObjects, game)
                     
             except:

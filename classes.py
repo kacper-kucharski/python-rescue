@@ -10,45 +10,25 @@ class Player:
         self.Exp = Exp
         self.lastQuestion = None
         self.lastAwnser = None
+        self.skipTurn = 0
 
 # Create Game class with changePlayerTurn function and parameters like amount of player, list of all players and optional maxPoints option.
 class Game: 
-    def __init__(self, playerList, maxPoints = 4):
-        self.amountOfPlayers = len(playerList)
-        self.maxPoints = maxPoints
-        self.playersList = playerList
-        self.playersTurn = playerList[0]
-        self.duelAgainst = None
-
-    # Looks up the current player in the list and gives the turn to the next player, if last player goes back to first player
-    def changePlayerTurn(self):
-        for x in range(len(self.playersList)):
-            if self.playersTurn.name == self.playersList[x].name:
-                print(x, len(self.playersList)- 1)
-                if x != len(self.playersList)-1:
-                    self.playersTurn = self.playersList[x+1]
-                    break
-                else:
-                    self.playersTurn = self.playersList[0]
-                    break
-# Import all questions and answers and sort them by difficulty 
+    # Import all questions and answers and sort them by difficulty 
     def importKaarten(naam):
         with open(naam+'.csv') as kaarten:
             kaarten = csv.reader(kaarten, delimiter=',')
-            return list(kaarten)
-
-    list_makkelijk = importKaarten('import_csv/Leveltracker/MakkelijkKaarten')
-    list_gemiddeld = importKaarten('import_csv/Leveltracker/GemiddeldKaarten')
-    list_moeilijk = importKaarten('import_csv/Leveltracker/MoeilijkKaarten')        
+            return list(kaarten)        
+    
 
 # Return a question based on the players' level
     def getVraag(self):
         if self.playersTurn.difficulty == 'makkelijk':
-            x = list_makkelijk
+            x = self.list_makkelijk
         elif self.playersTurn.difficulty == 'gemiddeld':
-            x = list_gemiddeld
+            x = self.list_gemiddeld
         else:
-            x = list_moeilijk
+            x = self.list_moeilijk
         self.playersTurn.lastQuestion = x[random.randint(0, len(x)-1)]
         return self.playersTurn.lastQuestion
 
@@ -65,4 +45,27 @@ class Game:
             kansKaarten = csv.reader(kansKaarten, delimiter=',')
             list_cards = list(kansKaarten)
             return str(list_cards[random.randint(0 , len(list_cards) - 1)]).strip("[]'")
+    
+    def __init__(self, playerList, maxPoints = 4):
+        self.amountOfPlayers = len(playerList)
+        self.maxPoints = maxPoints
+        self.playersList = playerList
+        self.playersTurn = playerList[0]
+        self.duelAgainst = None
         
+    list_makkelijk = importKaarten('import_csv/Leveltracker/MakkelijkKaarten')
+    list_gemiddeld = importKaarten('import_csv/Leveltracker/GemiddeldKaarten')
+    list_moeilijk = importKaarten('import_csv/Leveltracker/MoeilijkKaarten')
+
+    # Looks up the current player in the list and gives the turn to the next player, if last player goes back to first player
+    def changePlayerTurn(self):
+        for x in range(len(self.playersList)):
+            # print(x)
+            if self.playersTurn.name == self.playersList[x].name:
+                # print(x, len(self.playersList)- 1)
+                if x != len(self.playersList)-1:
+                    self.playersTurn = self.playersList[x+1]
+                    break
+                else:
+                    self.playersTurn = self.playersList[0]
+                    break

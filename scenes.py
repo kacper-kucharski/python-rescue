@@ -17,12 +17,16 @@ def playerNameScene(cp5, font, interactiveObjects):
 # scene = 1
 def mainMenu(cp5, font, interactiveObjects, game):
     text("Aan de beurt: " + str(game.playersTurn.name), width * 0.05, height * 0.15)
-    text("Aantal punten: " + str(game.playersTurn.currentPoints), width * 0.05, height * 0.20)
+    text("Aantal punten: " + str(game.playersTurn.currentPoints), width * 0.05, height * 0.20)   
     interactiveObjects.append(cp5.addButton("Change turn").setPosition(int(width* 0.50 ), int(height* 0.17 )).setSize(int(width* 0.08 ), int(height* 0.05 )).setFont(font).setColorBackground(color(255,150,100)))
     interactiveObjects.append(cp5.addTextlabel("Cards").setPosition(int(width* 0.03 ), int(height* 0.05 )).setSize(int(width* 0.05 ), int(height* 0.05 )).setFont(font).setColorBackground(color(255,0,0)))
     interactiveObjects.append(cp5.addButton("End Game").setPosition(int(width* 0.55 ), int(height* 0.05 )).setSize(int(width* 0.08 ), int(height* 0.05 )).setFont(font).setColorBackground(color(0,0,0)))
     font = createFont("arial",50);
-    interactiveObjects.append(cp5.addButton("Vraag").setPosition(int(width* 0.05 ), int(height* 0.24 )).setSize(int(width* 0.28 ), int(height* 0.18 )).setFont(font).setColorBackground(color(0,255,0)))
+    
+    if game.playersTurn.currentPoints == game.maxPoints:
+        interactiveObjects.append(cp5.addButton("EindVraag!").setPosition(int(width* 0.05 ), int(height* 0.24 )).setSize(int(width* 0.28 ), int(height* 0.18 )).setFont(font).setColorBackground(color(0,255,0)))
+    else:
+        interactiveObjects.append(cp5.addButton("Vraag").setPosition(int(width* 0.05 ), int(height* 0.24 )).setSize(int(width* 0.28 ), int(height* 0.18 )).setFont(font).setColorBackground(color(0,255,0)))
     interactiveObjects.append(cp5.addButton("Doom").setPosition(int(width* 0.34 ), int(height* 0.24 )).setSize(int(width* 0.28 ), int(height* 0.18 )).setFont(font).setColorBackground(color(255,0,0)))
     interactiveObjects.append(cp5.addButton("Kans").setPosition(int(width* 0.05 ), int(height* 0.51 )).setSize(int(width* 0.28 ), int(height* 0.18 )).setFont(font).setColorBackground(color(255,0,0)))
     interactiveObjects.append(cp5.addButton("Duel").setPosition(int(width* 0.34 ), int(height* 0.51 )).setSize(int(width* 0.28 ), int(height* 0.18 )).setFont(font).setColorBackground(color(255,0,0)))
@@ -39,14 +43,24 @@ def vraagScene(cp5, font, interactiveObjects, game):
 # scene = 5
 def doomScene(cp5, font, interactiveObjects, game):
     doom = str(game.getDoom())
+    if doom == "Sla twee beurten over":
+        game.playersTurn.skipTurn = 2
+    if doom == "Sla een beurt over":
+        game.playersTurn.skipTurn = 1
     text("" + doom, int(width* 0.09 ), int(height* 0.3 ))
     interactiveObjects.append(cp5.addButton("Verzenden").setPosition(989,700).setSize(210,51).setFont(font))
     return interactiveObjects
 # scene = 4
 def kansScene(cp5, font, interactiveObjects, game):
     kans = str(game.getKans())
+    if kans == "Sla een beurt over":
+        game.playersTurn.skipTurn = 1
+    if kans == "Pak een doom kaart":
+        interactiveObjects.append(cp5.addButton("Pak een doomkaart!").setPosition(int(width* 0.52 ), int(height* 0.65 )).setSize(int(width* 0.13 ), int(height* 0.05 )).setFont(font).setColorBackground(color(255,0,0)))
+    else:
+        interactiveObjects.append(cp5.addButton("Verzenden").setPosition(int(width* 0.52 ), int(height* 0.65 )).setSize(int(width* 0.11 ), int(height* 0.05 )).setFont(font).setColorBackground(color(255,0,0)))        
     text(kans, int(width* 0.09 ), int(height* 0.3 ))
-    interactiveObjects.append(cp5.addButton("Verzenden").setPosition(int(width* 0.52 ), int(height* 0.65 )).setSize(int(width* 0.11 ), int(height* 0.05 )).setFont(font).setColorBackground(color(255,0,0)))
+    
     return interactiveObjects
 # scene = 6
 def duelScene(cp5, font, interactiveObjects, game):
@@ -72,16 +86,13 @@ def resultSceneWrong(cp5, font, interactiveObjects, game):
     return interactiveObjects
 # scene = 7
 def duelQuestionScene(cp5, font, interactiveObjects, game):
-    text("Vraag", int(width* 0.03 ), int(height* 0.03 ))
-    text("Je speelt tegen " + game.duelAgainst.name, int(width* 0.03 ), int(height* 0.30 ))
+    print("Im in duel")
+    # text("Vraag", int(width* 0.03 ), int(height* 0.03 ))
+    # text("Je speelt tegen " + game.duelAgainst.name, int(width* 0.03 ), int(height* 0.30 ))
     vraag = game.getVraag()
-    text(str(vraag[0]), width * 0.09, height * 0.29)
-    # cp5.setControlFont(font)
-    radioButtons = cp5.addRadioButton("radioButton", width/2, height/2).setSize(50,50).setItemsPerRow(1).setSpacingColumn(35).setFont(font)
+    text(str(vraag[0]), width * 0.02, height * 0.29)
     for i in range(1, 5):
         if vraag[i] != '':
-            radioButtons.addItem(str(vraag[i]), float(i))
-    interactiveObjects.append(radioButtons)
-    interactiveObjects.append(cp5.addButton("Verzenden").setPosition(int(width* 0.69 ), int(height* 0.78 )).setSize(int(width* 0.15 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
+            interactiveObjects.append(cp5.addButton(vraag[i]).setPosition(int(width* 0.10), int(height* 0.30+ 100 * i )).setSize(int(width* 0.80 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
     interactiveObjects.append(cp5.addButton("Terug").setPosition(int(width* 0.74 ), int(height* 0.05 )).setSize(int(width* 0.11 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
     return interactiveObjects
