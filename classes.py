@@ -67,6 +67,4 @@ class Game:
                 else:
                     self.playersTurn = self.playersList[0]
                     break
-
-
         
