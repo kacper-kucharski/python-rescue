@@ -59,6 +59,7 @@ def duelScene(cp5, font, interactiveObjects, game):
         if x.name != game.playersTurn.name:
             _players.append(x)
     for x in range(len(_players)):
+        print(_players[x].name)
         interactiveObjects.append(cp5.addButton(str(_players[x].name)).setPosition(int(width* 0.25 ), int(buttonHeight[x])).setSize(int(width* 0.17 ), int(height* 0.08 )).setFont(font).setColorBackground(color(255,0,0)))
     return interactiveObjects
 # scene = 3
@@ -72,7 +73,6 @@ def resultSceneWrong(cp5, font, interactiveObjects, game):
     return interactiveObjects
 # scene = 7
 def duelQuestionScene(cp5, font, interactiveObjects, game):
-    print("Im in duel")
     # text("Vraag", int(width* 0.03 ), int(height* 0.03 ))
     # text("Je speelt tegen " + game.duelAgainst.name, int(width* 0.03 ), int(height* 0.30 ))
     vraag = game.getVraag()
