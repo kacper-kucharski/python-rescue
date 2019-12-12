@@ -139,10 +139,12 @@ def mousePressed():
                         interactiveObjects = scenes.resultScene(cp5, font, interactiveObjects, game)
                         break
                     if x == "Verzenden" and scene == 4:
+                        game.changePlayerTurn()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
                     if x == "Verzenden" and scene == 5:
+                        game.changePlayerTurn()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
