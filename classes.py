@@ -13,8 +13,8 @@ class Player:
 
 # Create Game class with changePlayerTurn function and parameters like amount of player, list of all players and optional maxPoints option.
 class Game: 
-    def __init__(self, amountOfPlayers, playerList, maxPoints = 4):
-        self.amountOfPlayers = amountOfPlayers
+    def __init__(self, playerList, maxPoints = 4):
+        self.amountOfPlayers = len(playerList)
         self.maxPoints = maxPoints
         self.playersList = playerList
         self.playersTurn = playerList[0]
@@ -24,6 +24,7 @@ class Game:
     def changePlayerTurn(self):
         for x in range(len(self.playersList)):
             if self.playersTurn.name == self.playersList[x].name:
+                print(x, len(self.playersList)- 1)
                 if x != len(self.playersList)-1:
                     self.playersTurn = self.playersList[x+1]
                     break
@@ -31,6 +32,7 @@ class Game:
                     self.playersTurn = self.playersList[0]
                     break
 
+<<<<<<< HEAD
 # Import all questions and answers and sort them by difficulty 
     def importKaarten(naam):
         with open(naam+'.csv') as kaarten:
@@ -41,6 +43,9 @@ class Game:
     list_moeilijk = importKaarten('import_csv/Leveltracker/MoeilijkKaarten')
 
 # Return a question based on the players' level
+=======
+    # Get a random question from an csv file with all the questions
+>>>>>>> 450e1e75f0e86f008a7447cef8af7e81c5dbd95d
     def getVraag(self):
         if self.playerturn.difficulty == 'makkelijk':
             x = list_makkelijk

@@ -83,14 +83,14 @@ def mousePressed():
                             #     if x.name == y.name:
                             #         same == 1
                             
+                        elif same == 1:
+                            playersList = []
+                            text("Er moeten wel unieke namen ingevoerd worden.", width * 0.01, height/2)
                         if len(playersList) >= 2:
                             deleteAllComponents()
                             scene = 1
-                            game = classes.Game(len(playersList), playersList)
-                            interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
-                        elif same == 1:
-                            playersList = []
-                            text("Er moeten wel unieke namen ingevoerd worden.", width * 0.01, height/2)   
+                            game = classes.Game(playersList)
+                            interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)   
                         else:
                             playersList = []
                             text("Er moet wel meer dan 1 persoon ingevuld worden om het spel te beginnnen.", width * 0.01, height/2)    
@@ -192,7 +192,7 @@ def mousePressed():
                 print(sys.exc_info()[1])
                 
     except:
-        pass      
+        pass     
 def deleteAllComponents():
     global cp5
     for i in interactiveObjects:
