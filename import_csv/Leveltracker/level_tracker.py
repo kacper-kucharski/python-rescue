@@ -57,9 +57,9 @@ def getVraag():
 # Make a function for changing a players level and call this after adding or taking a point
 
 def level_change():
-    if self.Exp < 5:
+    if self.Exp < 4:
         self.difficulty = 'makkelijk'
-    elif self.Exp >= 5 and self.currentPoints < 8:
+    elif self.Exp >= 4 and self.currentPoints < 8:
         self.difficulty = 'gemiddeld'
     else:
         self.difficulty = 'moeilijk'
