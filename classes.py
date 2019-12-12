@@ -22,11 +22,15 @@ class Game:
 
     # Looks up the current player in the list and gives the turn to the next player, if last player goes back to first player
     def changePlayerTurn(self):
+        print("self.playerList = " + self.playersList)
         for x in range(len(self.playersList)):
+            print("self.playersTurn = " + self.playersTurn.name)
+            print("self.currentPlayer = " + self.playersList[x].name)
             if self.playersTurn.name == self.playersList[x].name:
                 if x != len(self.playersList)-1:
                     self.playersTurn = self.playersList[x+1]
                     break
+
                 else:
                     self.playersTurn = self.playersList[0]
                     break
