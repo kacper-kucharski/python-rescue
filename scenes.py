@@ -72,16 +72,13 @@ def resultSceneWrong(cp5, font, interactiveObjects, game):
     return interactiveObjects
 # scene = 7
 def duelQuestionScene(cp5, font, interactiveObjects, game):
-    text("Vraag", int(width* 0.03 ), int(height* 0.03 ))
-    text("Je speelt tegen " + game.duelAgainst.name, int(width* 0.03 ), int(height* 0.30 ))
+    print("Im in duel")
+    # text("Vraag", int(width* 0.03 ), int(height* 0.03 ))
+    # text("Je speelt tegen " + game.duelAgainst.name, int(width* 0.03 ), int(height* 0.30 ))
     vraag = game.getVraag()
-    text(str(vraag[0]), width * 0.09, height * 0.29)
-    # cp5.setControlFont(font)
-    radioButtons = cp5.addRadioButton("radioButton", width/2, height/2).setSize(50,50).setItemsPerRow(1).setSpacingColumn(35).setFont(font)
+    text(str(vraag[0]), width * 0.02, height * 0.29)
     for i in range(1, 5):
         if vraag[i] != '':
-            radioButtons.addItem(str(vraag[i]), float(i))
-    interactiveObjects.append(radioButtons)
-    interactiveObjects.append(cp5.addButton("Verzenden").setPosition(int(width* 0.69 ), int(height* 0.78 )).setSize(int(width* 0.15 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
+            interactiveObjects.append(cp5.addButton(vraag[i]).setPosition(int(width* 0.10), int(height* 0.30+ 100 * i )).setSize(int(width* 0.80 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
     interactiveObjects.append(cp5.addButton("Terug").setPosition(int(width* 0.74 ), int(height* 0.05 )).setSize(int(width* 0.11 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
     return interactiveObjects
