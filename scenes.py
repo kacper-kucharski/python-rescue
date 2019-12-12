@@ -73,7 +73,6 @@ def resultSceneWrong(cp5, font, interactiveObjects, game):
     return interactiveObjects
 # scene = 7
 def duelQuestionScene(cp5, font, interactiveObjects, game):
-    print("Im in duel")
     # text("Vraag", int(width* 0.03 ), int(height* 0.03 ))
     # text("Je speelt tegen " + game.duelAgainst.name, int(width* 0.03 ), int(height* 0.30 ))
     vraag = game.getVraag()
