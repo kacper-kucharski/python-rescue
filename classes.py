@@ -11,6 +11,14 @@ class Player:
         self.lastQuestion = None
         self.lastAwnser = None
         self.skipTurn = 0
+    def level_change(self):
+        if self.Exp < 4:
+            self.difficulty = 'makkelijk'
+        elif self.Exp >= 4 and self.currentPoints < 8:
+            self.difficulty = 'gemiddeld'
+        else:
+            self.difficulty = 'moeilijk'
+    
 
 # Create Game class with changePlayerTurn function and parameters like amount of player, list of all players and optional maxPoints option.
 class Game: 
@@ -23,6 +31,7 @@ class Game:
 
 # Return a question based on the players' level
     def getVraag(self):
+        self.playersTurn.level_change()
         if self.playersTurn.difficulty == 'makkelijk':
             x = self.list_makkelijk
         elif self.playersTurn.difficulty == 'gemiddeld':
@@ -63,18 +72,14 @@ class Game:
             # print(x)
             if self.playersTurn.name == self.playersList[x].name:
                 # print(x, len(self.playersList)- 1)
+                if self.playersTurn.skipTurn > 0 and x != len(self.playersList)-1:
+                    self.playersTurn.skipTurn -= 1
+                    self.playersTurn = self.playersList[x+1]
+                else:
+                    self.playersTurn = self.playersList[0]
                 if x != len(self.playersList)-1:
                     self.playersTurn = self.playersList[x+1]
                     break
                 else:
                     self.playersTurn = self.playersList[0]
                     break
-                
-    def level_change():
-        if self.Exp < 4:
-            self.difficulty = 'makkelijk'
-        elif self.Exp >= 4 and self.currentPoints < 8:
-            self.difficulty = 'gemiddeld'
-        else:
-            self.difficulty = 'moeilijk'
-        
