@@ -1,5 +1,6 @@
 import scenes
 import classes
+import eindgame
 add_library('controlP5')
 
 def changeFocus():
