@@ -48,6 +48,9 @@ def doomScene(cp5, font, interactiveObjects, game):
         game.playersTurn.skipTurn = 2
     if doom == "Sla een beurt over":
         game.playersTurn.skipTurn = 1
+    if doom == "leg een van jouw munten terug":
+        if  game.playersTurn.currentPoints > 0:
+            game.playersTurn.currentPoints -= 1
     text("" + doom, int(width* 0.09 ), int(height* 0.3 ))
     interactiveObjects.append(cp5.addButton("Verzenden").setPosition(989,700).setSize(210,51).setFont(font))
     return interactiveObjects
