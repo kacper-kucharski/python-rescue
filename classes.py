@@ -3,7 +3,7 @@ import random
 
 # Create Player class with name, difficulty and optional currentPoints parameters.
 class Player:
-    def __init__(self, name, difficulty="makkelijk", currentPoints = 0, Exp = 5):
+    def __init__(self, name, difficulty="makkelijk", currentPoints = 4, Exp = 5):
         self.name = name
         self.difficulty = difficulty
         self.currentPoints = currentPoints
@@ -61,8 +61,6 @@ class Game:
         self.playersList = playerList
         self.playersTurn = playerList[0]
         self.duelAgainst = None
-        for i in self.playersList:
-            print(i.name)
         
     list_makkelijk = importKaarten('import_csv/Leveltracker/MakkelijkKaarten')
     list_gemiddeld = importKaarten('import_csv/Leveltracker/GemiddeldKaarten')
@@ -75,8 +73,6 @@ class Game:
                 if self.playersTurn.skipTurn > 0 and x != len(self.playersList)-1:
                     self.playersTurn.skipTurn -= 1
                     self.playersTurn = self.playersList[x+1]
-                else:
-                    self.playersTurn = self.playersList[0]
                 if x != len(self.playersList)-1:
                     self.playersTurn = self.playersList[x+1]
                     break

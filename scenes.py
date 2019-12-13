@@ -24,7 +24,8 @@ def mainMenu(cp5, font, interactiveObjects, game):
     font = createFont("arial",50);
     
     if game.playersTurn.currentPoints == game.maxPoints:
-        interactiveObjects.append(cp5.addButton("EindVraag!").setPosition(int(width* 0.05 ), int(height* 0.24 )).setSize(int(width* 0.28 ), int(height* 0.18 )).setFont(font).setColorBackground(color(0,255,0)))
+        pass
+        interactiveObjects.append(cp5.addButton("EindVraag").setPosition(int(width* 0.05 ), int(height* 0.24 )).setSize(int(width* 0.28 ), int(height* 0.18 )).setFont(font).setColorBackground(color(0,255,0)))
     else:
         interactiveObjects.append(cp5.addButton("Vraag").setPosition(int(width* 0.05 ), int(height* 0.24 )).setSize(int(width* 0.28 ), int(height* 0.18 )).setFont(font).setColorBackground(color(0,255,0)).setColorForeground(color(0,200,0)))
     interactiveObjects.append(cp5.addButton("Doom").setPosition(int(width* 0.34 ), int(height* 0.24 )).setSize(int(width* 0.28 ), int(height* 0.18 )).setFont(font).setColorBackground(color(0,0,0)).setColorActive(color(50,50,50)).setColorForeground(color(50,50,50)))
@@ -87,7 +88,7 @@ def vraagResultSceneWrong(cp5, font, interactiveObjects, game):
     return interactiveObjects
 
 # 10
-def duel
+# def duel
 
 # 9
 def duelResultSceneRight(cp5, font, interactiveObjects, game, playerThatCanAnswer):

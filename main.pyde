@@ -20,7 +20,7 @@ def changeFocus():
             break
 def setup():
     color(0)
-    background(200)
+    background(182, 123, 101)
     global playerName, savedPlayerName, interactiveObjects, cp5, font, scene, buttonNames, playersList
     font = createFont("arial",20);
     scene = -1
@@ -39,7 +39,7 @@ def keyPressed():
     if keyCode == 9 and scene == 0:
         changeFocus()
     if scene == -1:
-        background(200)
+        background(182, 123, 101)
         deleteAllComponents()
         scene = 0
         interactiveObjects = scenes.playerNameScene(cp5, font, interactiveObjects)
@@ -60,13 +60,13 @@ def mousePressed():
     try:
         for x in interactiveObjects:
             if scene == -1:
-                background(200)
+                background(182, 123, 101)
                 deleteAllComponents()
                 scene = 0
                 interactiveObjects = scenes.playerNameScene(cp5, font, interactiveObjects)
             try:
                 if cp5.getController(x.getName()).isPressed():
-                    background(200)
+                    background(182, 123, 101)
                     x = x.getName()
                     
                     if x == 'Verder' and scene == 0:
@@ -97,115 +97,155 @@ def mousePressed():
                             interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)   
                         else:
                             playersList = []
-                            text("Er moet wel meer dan 1 persoon ingevuld worden om het spel te beginnnen.", width * 0.01, height/2)    
+                            text("Er moet wel meer dan 1 persoon ingevuld worden \nom het spel te beginnnen.", width * 0.10, height/2)    
                         break
-                    deleteAllComponents()
-                    if x == "Cards" and scene == 0:
+                   
+                    if x == "EindVraag" and scene == 1:
+                        deleteAllComponents()
+                        scene = 1000
+                        interactiveObjects = eindgame.startEindgame(cp5, font, interactiveObjects, game)
+                    if (x == "Antwoord 1" or x == "Antwoord 2" or x == "Antwoord 3" or x == "Antwoord 4") and scene == 1000:
+                        deleteAllComponents()
+                        scene = 1001
+                        interactiveObjects = eindgame.tweedeEindvraag(cp5, font, interactiveObjects, game)
+                    if (x == "Antwoord 5" or x == "Antwoord 6" or x == "Antwoord 7" or x == "Antwoord 8") and scene == 1001:
+                        deleteAllComponents()
+                        scene = 1002
+                        interactiveObjects = eindgame.derdeEindvraag(cp5, font, interactiveObjects, game)
+                    if (x == "Antwoord 1" or x == "Antwoord 2" or x == "Antwoord 3" or x == "Antwoord 4") and scene == 1002:
+                        deleteAllComponents()
+                        scene = 1003
+                        interactiveObjects = eindgame.vierdeEindvraag(cp5, font, interactiveObjects, game)
+                    if (x == "Antwoord 5" or x == "Antwoord 6" or x == "Antwoord 7" or x == "Antwoord 8") and scene == 1003:
+                        deleteAllComponents()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
-                        break
-                    if x == "EindVraag!" and scene == 0:
-                        scene = 1000
-                        interactiveObjects = eindgame.startEindgame()
+                    if x == "Terug" and (scene == 1000 or scene == 1001 or scene == 1002 or scene == 1003):
+                        game.changePlayerTurn()
+                        deleteAllComponents()
+                        scene = 1
+                        interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                     if x == "End Game":
                         exit()
                         break
                     if x == "Vraag":
+                        deleteAllComponents()
                         scene = 2
                         interactiveObjects = scenes.vraagScene(cp5, font, interactiveObjects, game)
                         break
                     if x == "Doom":
+                        deleteAllComponents()
                         interactiveObject = scenes.doomScene(cp5, font, interactiveObjects, game)
                         scene = 5
                         break
                     if x == "Kans":
+                        deleteAllComponents()
                         scene = 4
                         interactiveObject = scenes.kansScene(cp5, font, interactiveObjects, game)
                         break
                     if x == "Pak een doomkaart!" and scene == 4:
+                        deleteAllComponents()
                         interactiveObject = scenes.doomScene(cp5, font, interactiveObjects, game)
                         scene = 5
                         break
                     if x == "Duel":
+                        deleteAllComponents()
                         scene = 6
                         interactiveObjects = scenes.duelScene(cp5, font, interactiveObjects, game)
                         break
                     if x == "Verzenden" and scene == 2:
+                        deleteAllComponents()
                         scene = 3
                         interactiveObjects = scenes.resultScene(cp5, font, interactiveObjects, game)
                         break
                     if x == "Verzenden" and scene == 4:
+                        deleteAllComponents()
                         game.changePlayerTurn()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
                     if x == "Verzenden" and scene == 5:
+                        deleteAllComponents()
                         game.changePlayerTurn()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
                     if x == "Verzenden" and scene == 3:
+                        deleteAllComponents()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
                     if x == "Verzenden" and scene == 7:
+                        deleteAllComponents()
                         scene = 3
                         interactiveObjects = scenes.resultScene(cp5, font, interactiveObjects, game)
                         break
                     if x == "Verder" and scene == 8:
+                        deleteAllComponents()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
                     if x == "Terug" and scene == 2:
+                        deleteAllComponents()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
                     if x == "Terug" and scene == 6:
+                        deleteAllComponents()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
                     if x == "Terug" and scene == 7:
+                        deleteAllComponents()
                         scene = 6
                         interactiveObjects = scenes.duelScene(cp5, font, interactiveObjects, game)
                         break
                     if x == game.playersList[0].name:
+                        deleteAllComponents()
                         scene = 7
                         duelPressed = False
                         game.duelAgainst = game.playersList[0]
                         interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game)
                         break
                     if x == game.playersList[1].name:
+                        deleteAllComponents()
                         scene = 7
                         duelPressed = False
                         game.duelAgainst = game.playersList[1]
                         interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game)
                         break
                     if x == game.playersList[2].name:
+                        deleteAllComponents()
                         scene = 7
                         duelPressed = False
                         game.duelAgainst = game.playersList[2]
                         interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game)
                         break
                     if x == game.playersList[3].name:
+                        deleteAllComponents()
                         scene = 7
                         duelPressed = False
                         game.duelAgainst = game.playersList[3]
                         interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game)
                         break
                     if x == "Pak een doomkaart!" and scene == 9:
+                        deleteAllComponents()
                         interactiveObject = scenes.doomScene(cp5, font, interactiveObjects, game)
                         scene = 5
                         break
                     if x == "Verder" and scene == 9:
+                        deleteAllComponents()
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         scene = 1
                         break
                     if x == "Change turn":
+                        deleteAllComponents()
                         game.changePlayerTurn()
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
                      # This checks if the awnser commited is right or wrong.
                     if scene == 2:
+                        deleteAllComponents()
                     #compares string of the button with the string of the awnser
                         if str(x) == str(game.playersTurn.lastQuestion[6]):  
                             scene = 8
@@ -220,6 +260,7 @@ def mousePressed():
                             interactiveObjects = scenes.vraagResultSceneWrong(cp5, font, interactiveObjects, game)
                            
                     if scene == 7:
+                        deleteAllComponents()
                     #compares string of the button with the string of the awnser
                         if str(x) == str(game.playersTurn.lastQuestion[6]):  
                             scene = 9
