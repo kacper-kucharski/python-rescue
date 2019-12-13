@@ -262,7 +262,7 @@ def mousePressed():
                     if scene == 7:
                         deleteAllComponents()
                     #compares string of the button with the string of the awnser
-                        if str(x) == str(game.playersTurn.lastQuestion[6]):  
+                        if str(x) == str(game.playersTurn.lastQuestion[6]) and duelPressed:  
                             scene = 9
                             # Als aanvaller correct de vraag beantwoord.
                             if playerThatCanAnswer == game.playersTurn:
