@@ -104,14 +104,9 @@ def mousePressed():
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
-                    if x == "Leaderboards" and scene == 0:
-                        scene = 1
-                        interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
-                        break
-                    if x == "Rules" and scene == 0:
-                        scene = 1
-                        interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
-                        break
+                    if x == "EindVraag!" and scene == 0:
+                        scene = 1000
+                        interactiveObjects = eindgame.startEindgame()
                     if x == "End Game":
                         exit()
                         break
