@@ -3,7 +3,7 @@ import random
 
 # Create Player class with name, difficulty and optional currentPoints parameters.
 class Player:
-    def __init__(self, name, difficulty="makkelijk", currentPoints = 0, Exp = 5):
+    def __init__(self, name, difficulty="makkelijk", currentPoints = 4, Exp = 5):
         self.name = name
         self.difficulty = difficulty
         self.currentPoints = currentPoints
@@ -69,14 +69,10 @@ class Game:
     # Looks up the current player in the list and gives the turn to the next player, if last player goes back to first player
     def changePlayerTurn(self):
         for x in range(len(self.playersList)):
-            # print(x)
             if self.playersTurn.name == self.playersList[x].name:
-                # print(x, len(self.playersList)- 1)
                 if self.playersTurn.skipTurn > 0 and x != len(self.playersList)-1:
                     self.playersTurn.skipTurn -= 1
                     self.playersTurn = self.playersList[x+1]
-                else:
-                    self.playersTurn = self.playersList[0]
                 if x != len(self.playersList)-1:
                     self.playersTurn = self.playersList[x+1]
                     break
