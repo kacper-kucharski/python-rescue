@@ -70,12 +70,13 @@ class Game:
     def changePlayerTurn(self):
         for x in range(len(self.playersList)):
             if self.playersTurn.name == self.playersList[x].name:
-                if self.playersTurn.skipTurn > 0 and x != len(self.playersList)-1:
-                    self.playersTurn.skipTurn -= 1
-                    self.playersTurn = self.playersList[x+1]
                 if x != len(self.playersList)-1:
                     self.playersTurn = self.playersList[x+1]
-                    break
                 else:
                     self.playersTurn = self.playersList[0]
-                    break
+                break
+    def checkPlayerSkip():          
+        if Game.playersTurn.skipTurn > 0:
+            Game.playersTurn.skipTurn -= 1 
+            print("Players turn skipped!")
+            self.changePlayerTurn()

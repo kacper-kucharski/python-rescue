@@ -45,14 +45,15 @@ def vraagScene(cp5, font, interactiveObjects, game):
 def doomScene(cp5, font, interactiveObjects, game):
     doom = str(game.getDoom())
     if doom == "Sla twee beurten over":
-        game.playersTurn.skipTurn = 2
+        game.playersTurn.skipTurn += 2
     if doom == "Sla een beurt over":
-        game.playersTurn.skipTurn = 1
+        game.playersTurn.skipTurn += 1
     if doom == "leg een van jouw munten terug":
         if  game.playersTurn.currentPoints > 0:
             game.playersTurn.currentPoints -= 1
     text("" + doom, int(width* 0.09 ), int(height* 0.3 ))
     interactiveObjects.append(cp5.addButton("Verzenden").setPosition(989,700).setSize(210,51).setFont(font))
+    game.changePlayerTurn()
     return interactiveObjects
 # scene = 4
 def kansScene(cp5, font, interactiveObjects, game):
@@ -64,6 +65,7 @@ def kansScene(cp5, font, interactiveObjects, game):
     else:
         interactiveObjects.append(cp5.addButton("Verzenden").setPosition(int(width* 0.52 ), int(height* 0.65 )).setSize(int(width* 0.11 ), int(height* 0.05 )).setFont(font).setColorBackground(color(255,0,0)))        
     text(kans, int(width* 0.09 ), int(height* 0.3 ))
+    game.changePlayerTurn()
     
     return interactiveObjects
 # scene = 6
@@ -90,9 +92,6 @@ def vraagResultSceneWrong(cp5, font, interactiveObjects, game):
     interactiveObjects.append(cp5.addButton("Verder").setPosition(int(width* 0.07 ), int(height* 0.44 )).setSize(int(width* 0.07 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
     return interactiveObjects
 
-# 10
-# def duel
-
 # 9
 def duelResultSceneRight(cp5, font, interactiveObjects, game, playerThatCanAnswer):
     text("Goed!", 400, 250)
@@ -104,10 +103,13 @@ def duelResultSceneRight(cp5, font, interactiveObjects, game, playerThatCanAnswe
     return interactiveObjects
 def duelResultSceneWrong(cp5, font, interactiveObjects, game, playerThatCanAnswer):
     text("Fout!", 400, 250)
-    if playerThatCanAnswer == game.playersTurn:
-        interactiveObjects.append(cp5.addButton("Pak een doomkaart!").setPosition(int(width* 0.52 ), int(height* 0.65 )).setSize(int(width* 0.13 ), int(height* 0.05 )).setFont(font).setColorBackground(color(255,0,0)))
-    else:
+    print(playerThatCanAnswer.name)
+    # print(game.playersTurn.name)
+    # Als verdediger verkeerd beantwordt
+    if playerThatCanAnswer == game.duelAgainst:
         interactiveObjects.append(cp5.addButton("Verder").setPosition(int(width* 0.07 ), int(height* 0.44 )).setSize(int(width* 0.07 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
+    else:
+        interactiveObjects.append(cp5.addButton("Pak een doomkaart!").setPosition(int(width* 0.52 ), int(height* 0.65 )).setSize(int(width* 0.13 ), int(height* 0.05 )).setFont(font).setColorBackground(color(255,0,0)))
     return interactiveObjects
 # scene = 7
 def duelQuestionScene(cp5, font, interactiveObjects, game):

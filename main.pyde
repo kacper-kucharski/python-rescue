@@ -21,7 +21,7 @@ def changeFocus():
 def setup():
     color(0)
     background(182, 123, 101)
-    global playerName, savedPlayerName, interactiveObjects, cp5, font, scene, buttonNames, playersList
+    global playerName, savedPlayerName, interactiveObjects, cp5, font, scene, buttonNames, playersList, game
     font = createFont("arial",20);
     scene = -1
     cp5 = ControlP5(this)
@@ -32,6 +32,7 @@ def setup():
     fullScreen()
     
 def draw():
+    global game
     pass
     
 def keyPressed():
@@ -63,12 +64,15 @@ def mousePressed():
                 background(182, 123, 101)
                 deleteAllComponents()
                 scene = 0
-                interactiveObjects = scenes.playerNameScene(cp5, font, interactiveObjects)
+                interactiveObjects = scenes.playerNameScene(cp5, font, interactiveObjects) 
             try:
                 if cp5.getController(x.getName()).isPressed():
                     background(182, 123, 101)
                     x = x.getName()
+                    for i in playersList:
+                        print i.skipTurn
                     
+                   
                     if x == 'Verder' and scene == 0:
                         same = 0
                         # check of input niet leeg is en maakt vervolgens een player object met de gegeven naam
@@ -160,13 +164,11 @@ def mousePressed():
                         break
                     if x == "Verzenden" and scene == 4:
                         deleteAllComponents()
-                        game.changePlayerTurn()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
                     if x == "Verzenden" and scene == 5:
                         deleteAllComponents()
-                        game.changePlayerTurn()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
