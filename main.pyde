@@ -157,17 +157,8 @@ def mousePressed():
                         interactiveObjects = scenes.resultScene(cp5, font, interactiveObjects, game)
                         break
                     if x == "Verder" and scene == 8:
-                        # Als de verdediger correct de vraag beantwoord.
-                        if playerThatCanAnswer == game.duelAgainst:
-                            scene = 5
-                            interactiveObject = scenes.doomScene(cp5, font, interactiveObjects, game)
-                        # Als de aanvaller de vraag fout beantwoord.
-                        elif playerThatCanAnswer == game.playersTurn:
-                            scene = 5
-                            interactiveObject = scenes.doomScene(cp5, font, interactiveObjects, game)
-                        else:
-                            scene = 1
-                            interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
+                        scene = 1
+                        interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
                     if x == "Terug" and scene == 2:
                         scene = 1
@@ -205,6 +196,14 @@ def mousePressed():
                         game.duelAgainst = game.playersList[3]
                         interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game)
                         break
+                    if x == "Pak een doomkaart!" and scene == 9:
+                        interactiveObject = scenes.doomScene(cp5, font, interactiveObjects, game)
+                        scene = 5
+                        break
+                    if x == "Verder" and scene == 9:
+                        interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
+                        scene = 1
+                        break
                     if x == "Change turn":
                         game.changePlayerTurn()
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
@@ -217,33 +216,32 @@ def mousePressed():
                             game.playersTurn.currentPoints += 1
                             game.playersTurn.Exp += 1
                             game.changePlayerTurn()
-                            interactiveObjects = scenes.resultSceneRight(cp5, font, interactiveObjects, game)
+                            interactiveObjects = scenes.vraagResultSceneRight(cp5, font, interactiveObjects, game)
                         else:  
                             scene = 8
                             game.changePlayerTurn()
                             game.playersTurn.Exp -= 1
-                            interactiveObjects = scenes.resultSceneWrong(cp5, font, interactiveObjects, game)
+                            interactiveObjects = scenes.vraagResultSceneWrong(cp5, font, interactiveObjects, game)
                            
                     if scene == 7:
                     #compares string of the button with the string of the awnser
                         if str(x) == str(game.playersTurn.lastQuestion[6]):  
-                            scene = 8
+                            scene = 9
                             # Als aanvaller correct de vraag beantwoord.
                             if playerThatCanAnswer == game.playersTurn:
                                 if  game.duelAgainst.currentPoints > 0:
                                     game.duelAgainst.currentPoints -= 1
                                 game.changePlayerTurn()
-                            interactiveObjects = scenes.resultSceneRight(cp5, font, interactiveObjects, game)
+                            interactiveObjects = scenes.duelResultSceneRight(cp5, font, interactiveObjects, game, playerThatCanAnswer)
                         else:  
                             print('fout!')
-                            scene = 8
+                            scene = 9
                             # Als verdediger fout de vraag beantwoord.
                             if playerThatCanAnswer == game.duelAgainst:
                                 if  game.duelAgainst.currentPoints > 0:
                                     game.duelAgainst.currentPoints -= 1
                                 game.changePlayerTurn()
-                            game.changePlayerTurn()
-                            interactiveObjects = scenes.resultSceneWrong(cp5, font, interactiveObjects, game) 
+                            interactiveObjects = scenes.duelResultSceneWrong(cp5, font, interactiveObjects, game, playerThatCanAnswer) 
                     
             except:
                 print(sys.exc_info()[1])
