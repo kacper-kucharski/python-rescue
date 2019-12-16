@@ -127,14 +127,14 @@ def duelResultSceneWrong(cp5, font, interactiveObjects, game, playerThatCanAnswe
         interactiveObjects.append(cp5.addButton("Pak een doomkaart!").setPosition(int(width* 0.52 ), int(height* 0.65 )).setSize(int(width* 0.30 ), int(height* 0.05 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
     return interactiveObjects
 # scene = 7
-def duelQuestionScene(cp5, font, interactiveObjects, game):
+def duelQuestionScene(cp5, font, interactiveObjects, game, vraag):
     # text("Vraag", int(width* 0.03 ), int(height* 0.03 ))
     # text("Je speelt tegen " + game.duelAgainst.name, int(width* 0.03 ), int(height* 0.30 ))
-    vraag = game.getVraag()
     text(str(vraag[0]), width * 0.02, height * 0.29)
+    text("Speler: " + game.playersTurn.name + " moet A drukken!", width * 0.02, height * 0.90)
+    text("Speler: " + game.duelAgainst.name + " moet L drukken!", width * 0.5, height * 0.90)
     for i in range(1, 5):
         if vraag[i] != '':
-            interactiveObjects.append(cp5.addButton(vraag[i]).setPosition(int(width* 0.10), int(height* 0.30+ 100 * i )).setSize(int(width* 0.80 ), int(height* 0.06 )).setFont(font).setColorBackground(color(131, 89, 73)))
-    interactiveObjects.append(cp5.addButton("Terug").setPosition(int(width* 0.74 ), int(height* 0.05 )).setSize(int(width* 0.11 ), int(height* 0.06 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
-    print(interactiveObjects)
+            text(str(i) + ". " + vraag[i], width* 0.10, height* 0.30+ 100 * i )
+    interactiveObjects.append(cp5.addButton("Terug").setPosition(int(width* 0.74 ), int(height* 0.05 )).setSize(int(width* 0.11 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
     return interactiveObjects

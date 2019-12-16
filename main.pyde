@@ -36,7 +36,7 @@ def draw():
     pass
     
 def keyPressed():
-    global savedPlayerName, interactiveObjects, cp5, font, doom, scene, game, duelPressed, playerThatCanAnswer
+    global savedPlayerName, interactiveObjects, cp5, font, doom, scene, game, duelPressed, playerThatCanAnswer, vraag
     if keyCode == 9 and scene == 0:
         changeFocus()
     if scene == -1:
@@ -47,17 +47,27 @@ def keyPressed():
         # print(cp5.getController("Player 1").getText())
     playerThatCanAnswer = None
     if key == "a" and scene == 7 and duelPressed == False:
-        print(game.playersTurn.name)
-        text(game.playersTurn.name + " was first! He can now answer the question.", int(width* 0.1 ), int(height* 0.9 ))
+        background(182, 123, 101)
+        deleteAllComponents()
+        text(str(vraag[0]), width * 0.02, height * 0.29)
+        for i in range(1, 5):
+            if vraag[i] != '':
+                interactiveObjects.append(cp5.addButton(vraag[i]).setPosition(int(width* 0.10), int(height* 0.30+ 100 * i )).setSize(int(width* 0.80 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
+        text(game.playersTurn.name + " was als eerst! Je mag nu de vraag beantwoorden.", int(width* 0.1 ), int(height* 0.9 ))
         playerThatCanAnswer = game.playersTurn
         duelPressed = True
     if key == "l" and scene == 7 and duelPressed == False:
-        print(game.duelAgainst.name)
-        text(game.duelAgainst.name + " was first! He can now answer the question.", int(width* 0.1 ), int(height* 0.9 ))
+        background(182, 123, 101)
+        deleteAllComponents()
+        text(str(vraag[0]), width * 0.02, height * 0.29)
+        for i in range(1, 5):
+            if vraag[i] != '':
+                interactiveObjects.append(cp5.addButton(vraag[i]).setPosition(int(width* 0.10), int(height* 0.30+ 100 * i )).setSize(int(width* 0.80 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
+        text(game.duelAgainst.name + " was als eerst! Je mag nu de vraag beantwoorden.", int(width* 0.1 ), int(height* 0.9 ))
         playerThatCanAnswer = game.duelAgainst
         duelPressed = True
 def mousePressed():
-    global cp5, scene, interactiveObjects, playersList, game, duelPressed, playerThatCanAnswer
+    global cp5, scene, interactiveObjects, playersList, game, duelPressed, playerThatCanAnswer, vraag
     try:
         for x in interactiveObjects:
             if scene == -1:
@@ -109,19 +119,19 @@ def mousePressed():
                         deleteAllComponents()
                         scene = 1000
                         interactiveObjects = eindgame.startEindgame(cp5, font, interactiveObjects, game)
-                    if (x == "Antwoord 1" or x == "Antwoord 2" or x == "Antwoord 3" or x == "Antwoord 4") and scene == 1000:
+                    if (x == "input" or x == "int" or x == "str" or x == "print") and scene == 1000:
                         deleteAllComponents()
                         scene = 1001
                         interactiveObjects = eindgame.tweedeEindvraag(cp5, font, interactiveObjects, game)
-                    if (x == "Antwoord 5" or x == "Antwoord 6" or x == "Antwoord 7" or x == "Antwoord 8") and scene == 1001:
+                    if (x == "input" or x == "int" or x == "str" or x == "print") and scene == 1001:
                         deleteAllComponents()
                         scene = 1002
                         interactiveObjects = eindgame.derdeEindvraag(cp5, font, interactiveObjects, game)
-                    if (x == "Antwoord 1" or x == "Antwoord 2" or x == "Antwoord 3" or x == "Antwoord 4") and scene == 1002:
+                    if (x == "input" or x == "int" or x == "str" or x == "print") and scene == 1002:
                         deleteAllComponents()
                         scene = 1003
                         interactiveObjects = eindgame.vierdeEindvraag(cp5, font, interactiveObjects, game)
-                    if (x == "Antwoord 5" or x == "Antwoord 6" or x == "Antwoord 7" or x == "Antwoord 8") and scene == 1003:
+                    if (x == "input" or x == "int" or x == "str" or x == "print") and scene == 1003:
                         deleteAllComponents()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
@@ -203,33 +213,41 @@ def mousePressed():
                         scene = 6
                         interactiveObjects = scenes.duelScene(cp5, font, interactiveObjects, game)
                         break
+                    if x == "Verder" and scene == 10:
+                        deleteAllComponents()
+                        scene = 7
+                        interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game)
                     if x == game.playersList[0].name:
                         deleteAllComponents()
+                        vraag = game.getVraag()
                         scene = 7
                         duelPressed = False
                         game.duelAgainst = game.playersList[0]
-                        interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game)
+                        interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game, vraag)
                         break
                     if x == game.playersList[1].name:
                         deleteAllComponents()
+                        vraag = game.getVraag()
                         scene = 7
                         duelPressed = False
                         game.duelAgainst = game.playersList[1]
-                        interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game)
+                        interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game, vraag)
                         break
                     if x == game.playersList[2].name:
                         deleteAllComponents()
+                        vraag = game.getVraag()
                         scene = 7
                         duelPressed = False
                         game.duelAgainst = game.playersList[2]
-                        interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game)
+                        interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game, vraag)
                         break
                     if x == game.playersList[3].name:
                         deleteAllComponents()
+                        vraag = game.getVraag()
                         scene = 7
                         duelPressed = False
                         game.duelAgainst = game.playersList[3]
-                        interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game)
+                        interactiveObjects = scenes.duelQuestionScene(cp5, font, interactiveObjects, game, vraag)
                         break
                     if x == "Pak een doomkaart!" and scene == 9:
                         deleteAllComponents()
