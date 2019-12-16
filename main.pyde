@@ -58,7 +58,7 @@ def keyPressed():
         playerThatCanAnswer = game.playersTurn
         duelPressed = True
     if key == "l" and scene == 7 and duelPressed == False:
-        background(182, 123, 101)
+        background(115, 167, 136)
         deleteAllComponents()
         text(str(vraag[0]), width * 0.02, height * 0.29)
         for i in range(1, 5):
@@ -130,7 +130,7 @@ def mousePressed():
                         if same == 1:
                             playersList = []
                             text("Er moeten wel unieke namen ingevoerd worden.", width * 0.45, height * 0.16)
-                            text(" Vul hier de namen van de spelers in \n en start het spel. Veel plezier!", width * 0.45, height* 0.36)
+                            text(" Vul hier de namen van de spelers in.                  Geef hier je niveau aan.", width * 0.02, height* 0.09)
                         if len(playersList) >= 2:
                             deleteAllComponents()
                             scene = 1
@@ -143,7 +143,7 @@ def mousePressed():
                         else:
                             playersList = []
                             text(" Er moet wel meer dan 1 speler naam \n ingevuld worden om het spel te beginnen.", width * 0.45, height * 0.16)
-                            text(" Vul hier de namen van de spelers in \n en start het spel. Veel plezier!", width * 0.45, height* 0.36)    
+                            text(" Vul hier de namen van de spelers in.                  Geef hier je niveau aan.", width * 0.02, height* 0.09)    
                         break   
                     print(x, scene)                
                     if x == "Eind Vraag" and scene == 1:
