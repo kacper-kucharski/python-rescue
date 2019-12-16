@@ -20,9 +20,9 @@ def changeFocus():
             break
 def setup():
     color(0)
-    background(182, 123, 101)
+    background(115, 167, 136)
     global playerName, savedPlayerName, interactiveObjects, cp5, font, scene, buttonNames, playersList, game
-    font = createFont("arial",20);
+    font = createFont("arial",30);
     scene = -1
     cp5 = ControlP5(this)
     interactiveObjects = []
@@ -40,7 +40,7 @@ def keyPressed():
     if keyCode == 9 and scene == 0:
         changeFocus()
     if scene == -1:
-        background(182, 123, 101)
+        background(115, 167, 136)
         deleteAllComponents()
         scene = 0
         interactiveObjects = scenes.playerNameScene(cp5, font, interactiveObjects)
@@ -61,29 +61,29 @@ def mousePressed():
     try:
         for x in interactiveObjects:
             if scene == -1:
-                background(182, 123, 101)
+                background(115, 167, 136)
                 deleteAllComponents()
                 scene = 0
                 interactiveObjects = scenes.playerNameScene(cp5, font, interactiveObjects) 
             try:
                 if cp5.getController(x.getName()).isPressed():
-                    background(182, 123, 101)
+                    background(115, 167, 136)
                     x = x.getName()
                     for i in playersList:
                         print i.skipTurn
                     
                    
-                    if x == 'Verder' and scene == 0:
+                    if x == 'Begin Spel' and scene == 0:
                         same = 0
                         # check of input niet leeg is en maakt vervolgens een player object met de gegeven naam
-                        if cp5.getController("Player 1").getText() != "":
-                            playersList.append(classes.Player(cp5.getController("Player 1").getText()))
-                        if cp5.getController("Player 2").getText() != "":
-                            playersList.append(classes.Player(cp5.getController("Player 2").getText()))
-                        if cp5.getController("Player 3").getText() != "":
-                            playersList.append(classes.Player(cp5.getController("Player 3").getText()))
-                        if cp5.getController("Player 4").getText() != "":
-                            playersList.append(classes.Player(cp5.getController("Player 4").getText()))
+                        if cp5.getController("Speler 1").getText() != "":
+                            playersList.append(classes.Player(cp5.getController("Speler 1").getText()))
+                        if cp5.getController("Speler 2").getText() != "":
+                            playersList.append(classes.Player(cp5.getController("Speler 2").getText()))
+                        if cp5.getController("Speler 3").getText() != "":
+                            playersList.append(classes.Player(cp5.getController("Speler 3").getText()))
+                        if cp5.getController("Speler 4").getText() != "":
+                            playersList.append(classes.Player(cp5.getController("Speler 4").getText()))
                         # for i in playerList:
                         #     print(i.name)
                             # for y in playerList:
@@ -93,7 +93,8 @@ def mousePressed():
                             
                         if same == 1:
                             playersList = []
-                            text("Er moeten wel unieke namen ingevoerd worden.", width * 0.01, height/2)
+                            text("Er moeten wel unieke namen ingevoerd worden.", width * 0.45, height * 0.16)
+                            text(" Vul hier de namen van de spelers in \n en start het spel. Veel plezier!", width * 0.45, height* 0.36)
                         if len(playersList) >= 2:
                             deleteAllComponents()
                             scene = 1
@@ -101,9 +102,9 @@ def mousePressed():
                             interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)   
                         else:
                             playersList = []
-                            text("Er moet wel meer dan 1 persoon ingevuld worden \nom het spel te beginnnen.", width * 0.10, height/2)    
-                        break
-                   
+                            text(" Er moet wel meer dan 1 speler naam \n ingevuld worden om het spel te beginnen.", width * 0.45, height * 0.16)
+                            text(" Vul hier de namen van de spelers in \n en start het spel. Veel plezier!", width * 0.45, height* 0.36)    
+                        break                   
                     if x == "EindVraag" and scene == 1:
                         deleteAllComponents()
                         scene = 1000
@@ -129,7 +130,7 @@ def mousePressed():
                         deleteAllComponents()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
-                    if x == "End Game":
+                    if x == "Eindig Spel":
                         exit()
                         break
                     if x == "Vraag":
@@ -240,7 +241,7 @@ def mousePressed():
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         scene = 1
                         break
-                    if x == "Change turn":
+                    if x == "Verander beurt":
                         deleteAllComponents()
                         game.changePlayerTurn()
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
