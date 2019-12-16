@@ -82,14 +82,14 @@ def mousePressed():
                     if x == 'Begin Spel' and scene == 0:
                         same = 0
                         # check of input niet leeg is en maakt vervolgens een player object met de gegeven naam
-                        if cp5.getController("Speler 1").getText() != "":
-                            playersList.append(classes.Player(cp5.getController("Speler 1").getText()))
-                        if cp5.getController("Speler 2").getText() != "":
-                            playersList.append(classes.Player(cp5.getController("Speler 2").getText()))
-                        if cp5.getController("Speler 3").getText() != "":
-                            playersList.append(classes.Player(cp5.getController("Speler 3").getText()))
-                        if cp5.getController("Speler 4").getText() != "":
-                            playersList.append(classes.Player(cp5.getController("Speler 4").getText()))
+                        # if cp5.getController("Speler 1").getText() != "":
+                        playersList.append(classes.Player(cp5.getController("Speler 1").getText()))
+                        # if cp5.getController("Speler 2").getText() != "":
+                        playersList.append(classes.Player(cp5.getController("Speler 2").getText()))
+                        # if cp5.getController("Speler 3").getText() != "":
+                        playersList.append(classes.Player(cp5.getController("Speler 3").getText()))
+                        # if cp5.getController("Speler 4").getText() != "":
+                        playersList.append(classes.Player(cp5.getController("Speler 4").getText()))
                         # for i in playerList:
                         #     print(i.name)
                             # for y in playerList:

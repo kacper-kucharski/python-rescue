@@ -40,7 +40,7 @@ def mainMenu(cp5, font, interactiveObjects, game):
         interactiveObjects.append(cp5.addButton("Eind Vraag").setPosition(int(width* 0.05 ), int(height* 0.24 )).setSize(int(width* 0.41 ), int(height* 0.24 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
     else:
         font = createFont("arial",150);
-        interactiveObjects.append(cp5.addButton("Vraag").setPosition(int(width* 0.05 ), int(height* 0.24 )).setSize(int(width* 0.41 ), int(height* 0.24 )).setFont(font).setColorBackground(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
+        interactiveObjects.append(cp5.addButton("Vraag").setPosition(int(width* 0.05 ), int(height* 0.24 )).setSize(int(width* 0.41 ), int(height* 0.24 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorForeground(color(182, 123, 101)))
     font = createFont("arial",150);
     interactiveObjects.append(cp5.addButton("Doom").setPosition(int(width* 0.53 ), int(height* 0.24 )).setSize(int(width* 0.41 ), int(height* 0.24 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
     interactiveObjects.append(cp5.addButton("Kans").setPosition(int(width* 0.05 ), int(height* 0.60 )).setSize(int(width* 0.41 ), int(height* 0.24 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
@@ -63,7 +63,7 @@ def doomScene(cp5, font, interactiveObjects, game):
         game.playersTurn.skipTurn += 2
     if doom == "Sla een beurt over":
         game.playersTurn.skipTurn += 1
-    if doom == "Leg een van jouw munten terug":
+    if doom == "leg een van jouw munten terug":
         if  game.playersTurn.currentPoints > 0:
             game.playersTurn.currentPoints -= 1
     text("" + doom, int(width* 0.09 ), int(height* 0.3 ))
@@ -92,7 +92,7 @@ def duelScene(cp5, font, interactiveObjects, game):
     buttonHeight = [height* 0.19, height* 0.31, height* 0.43]
     _players = []
     for x in game.playersList:
-        if x.name != game.playersTurn.name:
+        if x.name != game.playersTurn.name and x.name != "":
             _players.append(x)
     for x in range(len(_players)):
         print(_players[x].name)
