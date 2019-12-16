@@ -105,7 +105,7 @@ def mousePressed():
                             text(" Er moet wel meer dan 1 speler naam \n ingevuld worden om het spel te beginnen.", width * 0.45, height * 0.16)
                             text(" Vul hier de namen van de spelers in \n en start het spel. Veel plezier!", width * 0.45, height* 0.36)    
                         break                   
-                    if x == "EindVraag" and scene == 1:
+                    if x == "Eind Vraag" and scene == 1:
                         deleteAllComponents()
                         scene = 1000
                         interactiveObjects = eindgame.startEindgame(cp5, font, interactiveObjects, game)
