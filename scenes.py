@@ -19,7 +19,24 @@ def playerNameScene(cp5, font, interactiveObjects):
     interactiveObjects.append(cp5.addTextfield("Speler 2").setPosition(int(width* 0.02 ), int(height* 0.34 )).setSize(int(width* 0.41 ), int(height* 0.09 )).setFont(font).setColorBackground(color(131, 89, 73)))
     interactiveObjects.append(cp5.addTextfield("Speler 3").setPosition(int(width* 0.02 ), int(height* 0.55 )).setSize(int(width* 0.41 ), int(height* 0.09 )).setFont(font).setColorBackground(color(131, 89, 73)))
     interactiveObjects.append(cp5.addTextfield("Speler 4").setPosition(int(width* 0.02 ), int(height* 0.75 )).setSize(int(width* 0.41 ), int(height* 0.09 )).setFont(font).setColorBackground(color(131, 89, 73)))
-    interactiveObjects.append(cp5.addButton("Begin Spel").setPosition(int(width* 0.62 ), int(height* 0.76)).setSize(int(width* 0.27 ), int(height* 0.12 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101))
+    # Set Label en verander button name
+    interactiveObjects.append(cp5.addButton("player1_easy").setLabel('Makkelijk').setPosition(int(width* 0.45 ), int(height* 0.14)).setSize(int(width* 0.10 ), int(height* 0.09 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)))
+    interactiveObjects.append(cp5.addButton("player1_medium").setLabel('Gemiddeld').setPosition(int(width* 0.65 ), int(height* 0.14)).setSize(int(width* 0.10 ), int(height* 0.09 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)))
+    interactiveObjects.append(cp5.addButton("player1_hard").setLabel('Moeilijk').setPosition(int(width* 0.85 ), int(height* 0.14)).setSize(int(width* 0.10 ), int(height* 0.09 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)))
+    
+    interactiveObjects.append(cp5.addButton("player2_easy").setLabel('Makkelijk').setPosition(int(width* 0.45 ), int(height* 0.34)).setSize(int(width* 0.10 ), int(height* 0.09 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)))
+    interactiveObjects.append(cp5.addButton("player2_medium").setLabel('Gemiddeld').setPosition(int(width* 0.65 ), int(height* 0.34)).setSize(int(width* 0.10 ), int(height* 0.09 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)))
+    interactiveObjects.append(cp5.addButton("player2_hard").setLabel('Moeilijk').setPosition(int(width* 0.85 ), int(height* 0.34)).setSize(int(width* 0.10 ), int(height* 0.09 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)))
+    
+    interactiveObjects.append(cp5.addButton("player3_easy").setLabel('Makkelijk').setPosition(int(width* 0.45 ), int(height* 0.55)).setSize(int(width* 0.10 ), int(height* 0.09 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)))
+    interactiveObjects.append(cp5.addButton("player3_medium").setLabel('Gemiddeld').setPosition(int(width* 0.65 ), int(height* 0.55)).setSize(int(width* 0.10 ), int(height* 0.09 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)))
+    interactiveObjects.append(cp5.addButton("player3_hard").setLabel('Moeilijk').setPosition(int(width* 0.85 ), int(height* 0.55)).setSize(int(width* 0.10 ), int(height* 0.09 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)))
+    
+    interactiveObjects.append(cp5.addButton("player4_easy").setLabel('Makkelijk').setPosition(int(width* 0.45 ), int(height* 0.75)).setSize(int(width* 0.10 ), int(height* 0.09 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)))
+    interactiveObjects.append(cp5.addButton("player4_medium").setLabel('Gemiddeld').setPosition(int(width* 0.65 ), int(height* 0.75)).setSize(int(width* 0.10 ), int(height* 0.09 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)))
+    interactiveObjects.append(cp5.addButton("player4_hard").setLabel('Moeilijk').setPosition(int(width* 0.85 ), int(height* 0.75)).setSize(int(width* 0.10 ), int(height* 0.09 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)))
+    
+    interactiveObjects.append(cp5.addButton("Begin Spel").setPosition(int(width* 0.62 ), int(height* 0.85)).setSize(int(width* 0.27 ), int(height* 0.09 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101))
                               .setColorForeground(color(182, 123, 101)))
    # .setColorActive(color(182, 123, 101)).setColorForeground(color(182, 123, 101))
    # .setColorActive(color(255, 0, 0)).setColorForeground(color(255, 0, 0)))
