@@ -65,11 +65,14 @@ def mainMenu(cp5, font, interactiveObjects, game):
     return interactiveObjects
 # scene = 2
 def vraagScene(cp5, font, interactiveObjects, game):
+    font = createFont('arial', 20)
+    textFont(font)
     vraag = game.getVraag()
     text(str(vraag[0]), width * 0.02, height * 0.29)
     for i in range(1, 5):
         if vraag[i] != '':
             interactiveObjects.append(cp5.addButton(vraag[i]).setPosition(int(width* 0.10), int(height* 0.30+ 100 * i )).setSize(int(width* 0.80 ), int(height* 0.06 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
+    font = createFont('arial', 30)
     interactiveObjects.append(cp5.addButton("Terug").setPosition(int(width* 0.74 ), int(height* 0.05 )).setSize(int(width* 0.11 ), int(height* 0.06 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
     return interactiveObjects
 # scene = 5
@@ -103,6 +106,8 @@ def kansScene(cp5, font, interactiveObjects, game):
     return interactiveObjects
 # scene = 6
 def duelScene(cp5, font, interactiveObjects, game):
+    font = createFont('arial', 20)
+    textFont(font)
     text("Duel", int(width* 0.05 ), int(height* 0.05 ))
     interactiveObjects.append(cp5.addButton("Terug").setPosition(int(width* 0.74 ), int(height* 0.05 )).setSize(int(width* 0.11 ), int(height* 0.06 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
     text("Tegen wie?", int(width* 0.07 ), int(height* 0.32 ))
@@ -148,6 +153,8 @@ def duelResultSceneWrong(cp5, font, interactiveObjects, game, playerThatCanAnswe
 def duelQuestionScene(cp5, font, interactiveObjects, game, vraag):
     # text("Vraag", int(width* 0.03 ), int(height* 0.03 ))
     # text("Je speelt tegen " + game.duelAgainst.name, int(width* 0.03 ), int(height* 0.30 ))
+    font = createFont('arial', 20)
+    textFont(font)
     text(str(vraag[0]), width * 0.02, height * 0.29)
     text("Speler: " + game.playersTurn.name + " moet A drukken!", width * 0.02, height * 0.90)
     text("Speler: " + game.duelAgainst.name + " moet L drukken!", width * 0.5, height * 0.90)
