@@ -111,24 +111,25 @@ def mousePressed():
                             playersList = []
                             text(" Er moet wel meer dan 1 speler naam \n ingevuld worden om het spel te beginnen.", width * 0.45, height * 0.16)
                             text(" Vul hier de namen van de spelers in \n en start het spel. Veel plezier!", width * 0.45, height* 0.36)    
-                        break                   
-                    if x == "EindVraag" and scene == 1:
+                        break   
+                    print(x, scene)                
+                    if x == "Eind Vraag" and scene == 1:
                         deleteAllComponents()
                         scene = 1000
                         interactiveObjects = eindgame.startEindgame(cp5, font, interactiveObjects, game)
-                    if (x == "Antwoord 1" or x == "Antwoord 2" or x == "Antwoord 3" or x == "Antwoord 4") and scene == 1000:
+                    if (x == "antwoord 1" or x == "antwoord 2" or x == "antwoord 3" or x == "antwoord 4") and scene == 1000:
                         deleteAllComponents()
                         scene = 1001
                         interactiveObjects = eindgame.tweedeEindvraag(cp5, font, interactiveObjects, game)
-                    if (x == "Antwoord 5" or x == "Antwoord 6" or x == "Antwoord 7" or x == "Antwoord 8") and scene == 1001:
+                    if (x == "antwoord 5" or x == "antwoord 6" or x == "antwoord 7" or x == "antwoord 8") and scene == 1001:
                         deleteAllComponents()
                         scene = 1002
                         interactiveObjects = eindgame.derdeEindvraag(cp5, font, interactiveObjects, game)
-                    if (x == "Antwoord 1" or x == "Antwoord 2" or x == "Antwoord 3" or x == "Antwoord 4") and scene == 1002:
+                    if (x == "antwoord 1" or x == "antwoord 2" or x == "antwoord 3" or x == "antwoord 4") and scene == 1002:
                         deleteAllComponents()
                         scene = 1003
                         interactiveObjects = eindgame.vierdeEindvraag(cp5, font, interactiveObjects, game)
-                    if (x == "Antwoord 5" or x == "Antwoord 6" or x == "Antwoord 7" or x == "Antwoord 8") and scene == 1003:
+                    if (x == "antwoord 5" or x == "antwoord 6" or x == "antwoord 7" or x == "antwoord 8") and scene == 1003:
                         deleteAllComponents()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
