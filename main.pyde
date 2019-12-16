@@ -79,12 +79,10 @@ def mousePressed():
                 if cp5.getController(x.getName()).isPressed():
                     background(115, 167, 136)
                     x = x.getName()
-                    for i in playersList:
-                        print i.skipTurn
                     
                    
                     if x == 'Begin Spel' and scene == 0:
-                        same = 0
+                        # same = 0
                         # check of input niet leeg is en maakt vervolgens een player object met de gegeven naam
                         if cp5.getController("Speler 1").getText() != "":
                             playersList.append(classes.Player(cp5.getController("Speler 1").getText()))
@@ -101,21 +99,21 @@ def mousePressed():
                             #     if x.name == y.name:
                             #         same == 1
                             
-                        if same == 1:
-                            playersList = []
-                            text("Er moeten wel unieke namen ingevoerd worden.", width * 0.45, height * 0.16)
-                            text(" Vul hier de namen van de spelers in \n en start het spel. Veel plezier!", width * 0.45, height* 0.36)
-                        if len(playersList) >= 2:
+                        # if same == 1:
+                        #     playersList = []
+                        #     text("Er moeten wel unieke namen ingevoerd worden.", width * 0.45, height * 0.16)
+                        #     text(" Vul hier de namen van de spelers in \n en start het spel. Veel plezier!", width * 0.45, height* 0.36)
+                        if len(playersList) >= 4:
                             deleteAllComponents()
                             scene = 1
+                            print(playersList)
                             game = classes.Game(playersList)
                             interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)   
                         else:
                             playersList = []
-                            text(" Er moet wel meer dan 1 speler naam \n ingevuld worden om het spel te beginnen.", width * 0.45, height * 0.16)
+                            text(" Er moeten 4 speler namen \n ingevuld worden om het spel te beginnen.", width * 0.45, height * 0.16)
                             text(" Vul hier de namen van de spelers in \n en start het spel. Veel plezier!", width * 0.45, height* 0.36)    
-                        break   
-                    print(x, scene)                
+                        break                 
                     if x == "Eind Vraag" and scene == 1:
                         deleteAllComponents()
                         scene = 1000
@@ -261,8 +259,13 @@ def mousePressed():
                         scene = 1
                         break
                     if x == "Verander beurt":
+                        scene = 50
+                        
+                        interactiveObjects = scenes.veranderBeurtScene(cp5, font, interactiveObjects, game)
+                        break
+                    if scene == 50:
                         deleteAllComponents()
-                        game.changePlayerTurn()
+                        scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
                      # This checks if the awnser commited is right or wrong.
@@ -293,7 +296,6 @@ def mousePressed():
                                 game.changePlayerTurn()
                             interactiveObjects = scenes.duelResultSceneRight(cp5, font, interactiveObjects, game, playerThatCanAnswer)
                         else:  
-                            print('fout!')
                             scene = 9
                             # Als verdediger fout de vraag beantwoord.
                             if playerThatCanAnswer == game.duelAgainst:
@@ -311,7 +313,6 @@ def deleteAllComponents():
     global cp5
     for i in interactiveObjects:
         try:
-            # print(type(i))
             i.remove()
             # if type(i) == 'radioButton':
             #     i.removeItem('1')
