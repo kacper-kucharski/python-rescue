@@ -109,19 +109,19 @@ def mousePressed():
                         deleteAllComponents()
                         scene = 1000
                         interactiveObjects = eindgame.startEindgame(cp5, font, interactiveObjects, game)
-                    if (x == "Antwoord 1" or x == "Antwoord 2" or x == "Antwoord 3" or x == "Antwoord 4") and scene == 1000:
+                    if (x == "input" or x == "int" or x == "str" or x == "print") and scene == 1000:
                         deleteAllComponents()
                         scene = 1001
                         interactiveObjects = eindgame.tweedeEindvraag(cp5, font, interactiveObjects, game)
-                    if (x == "Antwoord 5" or x == "Antwoord 6" or x == "Antwoord 7" or x == "Antwoord 8") and scene == 1001:
+                    if (x == "input" or x == "int" or x == "str" or x == "print") and scene == 1001:
                         deleteAllComponents()
                         scene = 1002
                         interactiveObjects = eindgame.derdeEindvraag(cp5, font, interactiveObjects, game)
-                    if (x == "Antwoord 1" or x == "Antwoord 2" or x == "Antwoord 3" or x == "Antwoord 4") and scene == 1002:
+                    if (x == "input" or x == "int" or x == "str" or x == "print") and scene == 1002:
                         deleteAllComponents()
                         scene = 1003
                         interactiveObjects = eindgame.vierdeEindvraag(cp5, font, interactiveObjects, game)
-                    if (x == "Antwoord 5" or x == "Antwoord 6" or x == "Antwoord 7" or x == "Antwoord 8") and scene == 1003:
+                    if (x == "input" or x == "int" or x == "str" or x == "print") and scene == 1003:
                         deleteAllComponents()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)

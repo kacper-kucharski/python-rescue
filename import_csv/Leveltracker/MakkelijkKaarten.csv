@@ -6,7 +6,7 @@ Hoe geef je commentaar weer in Python?,**,"""",#,,makkelijk,#
 heads = 0 Wat doet deze code?,Maakt een variabele aan met het nummer 0,Het checkt of de heads variabele 0 is,,,makkelijk,Maakt een variabele aan met het nummer 0
 x = 3+2 * 4,11,20,14,,makkelijk,11
 3 * 2 + 10 * 5 - 3,53,56,177,,makkelijk,53
-"Wat doet de operand ""OR""?",Dit is waar als er één daadwerkelijk waar is.,Dit is waar het eerste antwoord waar is.,Dit is waar het tweede antwoord waar is.,,makkelijk,Dit is waar als er één daadwerkelijk waar is.
+"Wat doet de operand ""OR""?",Dit is waar als er 1 daadwerkelijk waar is.,Dit is waar het eerste antwoord waar is.,Dit is waar het tweede antwoord waar is.,,makkelijk,Dit is waar als er 1 daadwerkelijk waar is.
 "Wat doet de operand ""AND""?","Deze operator is ""True"" zodra aan beide kanten van de operator ""True"" komt","Dit is waar zodra het antwoord beide ""False"" geeft.","Dit is waar zodra een van de antwoorden ""True"" is.",,makkelijk,"Deze operator is ""True"" zodra aan beide kanten van de operator ""True"" komt"
 "Wat doet de functie ""while""?","Zolang de operator ""True"" blijft gaat de functie door. ","Zolang de operator ""False"" blijft gaat de functie door.","Zolang er een nummer gegeven wordt blijft dit ""True"".",,makkelijk,"Zolang de operator ""True"" blijft gaat de functie door. "
 "Wat doet de functie ""if""?","Als de operator ""True"" is dan wordt de code eronder uitgevoerd.",Als er iets klaar is dan werkt deze if statement.,Als er iets niet klopt gaat dit uitgevoerd worden.,,makkelijk,"Als de operator ""True"" is dan wordt de code eronder uitgevoerd."

@@ -1,6 +1,6 @@
 for x in range(10): print('Hello world!') wat doet dit stuk code?,Het zoekt x in range(10) en print Hello World! uit,Het print 'Hello world!' 10 keer,Het print 'Hello world!' als x = 10,,moeilijk,Het print 'Hello world!' 10 keer
 "random.randint(0,1) Wat doet deze functie?",Het kiest een random integer tussen 0 en 1,"Het kiest een random getal met ,1 aan het einde",,,moeilijk,Als num 0 is dan gaat head met 1 omhoog
-x = 0 while x < 10: x = x + 1 Hoe vaak wordt deze code uitgevoerd?,10 keer,9 keer ,één keer,11 keer,moeilijk,10 keer
+x = 0 while x < 10: x = x + 1 Hoe vaak wordt deze code uitgevoerd?,10 keer,9 keer ,1 keer,11 keer,moeilijk,10 keer
 s = '*\n*\n*\n*' print(s) Wat print deze code uit?,* * * * ,*\n*\n*\n*,****,* (new-line) * (new-line) * (new-line) *,moeilijk,* (new-line) * (new-line) * (new-line) *
 n = 2 s = '' while n > 0: s = s + 'Ha\n' n = n - 1 Wat wordt s wanneer de code wordt uitgevoerd?,'Ha\nHa\nHa\n','Ha Ha Ha',Ha (new-line) Ha (new-line) Ha (new-line)',Ha Ha',moeilijk,Ha (new-line) Ha (new-line) Ha (new-line)'
 z = -5 w = 2 wat is  1 + z * w?,-8,-9,-15,,moeilijk,-9
