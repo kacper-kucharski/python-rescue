@@ -50,6 +50,8 @@ def keyPressed():
     if key == "a" and scene == 7 and duelPressed == False:
         background(115, 167, 136)
         deleteAllComponents()
+        font = createFont('arial', 20)
+        textFont(font)
         text(str(vraag[0]), width * 0.02, height * 0.29)
         for i in range(1, 5):
             if vraag[i] != '':
@@ -60,6 +62,8 @@ def keyPressed():
     if key == "l" and scene == 7 and duelPressed == False:
         background(115, 167, 136)
         deleteAllComponents()
+        font = createFont('arial', 20)
+        textFont(font)
         text(str(vraag[0]), width * 0.02, height * 0.29)
         for i in range(1, 5):
             if vraag[i] != '':
