@@ -96,7 +96,7 @@ def duelScene(cp5, font, interactiveObjects, game):
             _players.append(x)
     for x in range(len(_players)):
         print(_players[x].name)
-        interactiveObjects.append(cp5.addButton(str(_players[x].name)).setPosition(int(width* 0.25 ), int(buttonHeight[x])).setSize(int(width* 0.17 ), int(height* 0.08 )).setFont(font).setColorBackground(color(131, 89, 73)))
+        interactiveObjects.append(cp5.addButton(str(_players[x].name)).setPosition(int(width* 0.25 ), int(buttonHeight[x])).setSize(int(width* 0.17 ), int(height* 0.08 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
     return interactiveObjects
 # scene = 3
 def vraagResultSceneRight(cp5, font, interactiveObjects, game):

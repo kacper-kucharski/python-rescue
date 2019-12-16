@@ -47,12 +47,12 @@ def keyPressed():
         # print(cp5.getController("Player 1").getText())
     playerThatCanAnswer = None
     if key == "a" and scene == 7 and duelPressed == False:
-        background(182, 123, 101)
+        background(115, 167, 136)
         deleteAllComponents()
         text(str(vraag[0]), width * 0.02, height * 0.29)
         for i in range(1, 5):
             if vraag[i] != '':
-                interactiveObjects.append(cp5.addButton(vraag[i]).setPosition(int(width* 0.10), int(height* 0.30+ 100 * i )).setSize(int(width* 0.80 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
+                interactiveObjects.append(cp5.addButton(vraag[i]).setPosition(int(width* 0.10), int(height* 0.30+ 100 * i )).setSize(int(width* 0.80 ), int(height* 0.06 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
         text(game.playersTurn.name + " was als eerst! Je mag nu de vraag beantwoorden.", int(width* 0.1 ), int(height* 0.9 ))
         playerThatCanAnswer = game.playersTurn
         duelPressed = True
@@ -62,7 +62,7 @@ def keyPressed():
         text(str(vraag[0]), width * 0.02, height * 0.29)
         for i in range(1, 5):
             if vraag[i] != '':
-                interactiveObjects.append(cp5.addButton(vraag[i]).setPosition(int(width* 0.10), int(height* 0.30+ 100 * i )).setSize(int(width* 0.80 ), int(height* 0.06 )).setFont(font).setColorBackground(color(255,0,0)))
+                interactiveObjects.append(cp5.addButton(vraag[i]).setPosition(int(width* 0.10), int(height* 0.30+ 100 * i )).setSize(int(width* 0.80 ), int(height* 0.06 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
         text(game.duelAgainst.name + " was als eerst! Je mag nu de vraag beantwoorden.", int(width* 0.1 ), int(height* 0.9 ))
         playerThatCanAnswer = game.duelAgainst
         duelPressed = True
