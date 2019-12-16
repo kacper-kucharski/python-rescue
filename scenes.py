@@ -36,14 +36,15 @@ def mainMenu(cp5, font, interactiveObjects, game):
     if game.playersTurn.currentPoints == game.maxPoints:
         font = createFont("arial",100);
         pass
+        font = createFont("arial",120);
         interactiveObjects.append(cp5.addButton("Eind Vraag").setPosition(int(width* 0.05 ), int(height* 0.24 )).setSize(int(width* 0.41 ), int(height* 0.24 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
     else:
         font = createFont("arial",150);
-        interactiveObjects.append(cp5.addButton("Vraag").setPosition(int(width* 0.05 ), int(height* 0.24 )).setSize(int(width* 0.41 ), int(height* 0.24 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorForeground(color(0,200,0)))
+        interactiveObjects.append(cp5.addButton("Vraag").setPosition(int(width* 0.05 ), int(height* 0.24 )).setSize(int(width* 0.41 ), int(height* 0.24 )).setFont(font).setColorBackground(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
     font = createFont("arial",150);
-    interactiveObjects.append(cp5.addButton("Doom").setPosition(int(width* 0.53 ), int(height* 0.24 )).setSize(int(width* 0.41 ), int(height* 0.24 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(0, 0, 0)).setColorForeground(color(0, 0, 0)))
-    interactiveObjects.append(cp5.addButton("Kans").setPosition(int(width* 0.05 ), int(height* 0.60 )).setSize(int(width* 0.41 ), int(height* 0.24 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(255, 0, 0)).setColorForeground(color(255, 0, 0)))
-    interactiveObjects.append(cp5.addButton("Duel").setPosition(int(width* 0.53 ), int(height* 0.60 )).setSize(int(width* 0.41 ), int(height* 0.24 )).setFont(font).setColorBackground(color(131, 89, 73)))
+    interactiveObjects.append(cp5.addButton("Doom").setPosition(int(width* 0.53 ), int(height* 0.24 )).setSize(int(width* 0.41 ), int(height* 0.24 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
+    interactiveObjects.append(cp5.addButton("Kans").setPosition(int(width* 0.05 ), int(height* 0.60 )).setSize(int(width* 0.41 ), int(height* 0.24 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
+    interactiveObjects.append(cp5.addButton("Duel").setPosition(int(width* 0.53 ), int(height* 0.60 )).setSize(int(width* 0.41 ), int(height* 0.24 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
     return interactiveObjects
 # scene = 50
 def veranderBeurtScene(cp5, font, interactiveObjects, game):
@@ -102,7 +103,7 @@ def duelScene(cp5, font, interactiveObjects, game):
             _players.append(x)
     for x in range(len(_players)):
         print(_players[x].name)
-        interactiveObjects.append(cp5.addButton(str(_players[x].name)).setPosition(int(width* 0.25 ), int(buttonHeight[x])).setSize(int(width* 0.17 ), int(height* 0.08 )).setFont(font).setColorBackground(color(131, 89, 73)))
+        interactiveObjects.append(cp5.addButton(str(_players[x].name)).setPosition(int(width* 0.25 ), int(buttonHeight[x])).setSize(int(width* 0.17 ), int(height* 0.08 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
     return interactiveObjects
 # scene = 3
 def vraagResultSceneRight(cp5, font, interactiveObjects, game):
