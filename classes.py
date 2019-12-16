@@ -68,13 +68,14 @@ class Game:
 
     # Looks up the current player in the list and gives the turn to the next player, if last player goes back to first player
     def changePlayerTurn(self):
-        for x in range(len(self.playersList)):
+        for x in range(len(self.playersList)+1):
             if self.playersTurn.name == self.playersList[x].name:
                 if x != len(self.playersList)-1:
                     self.playersTurn = self.playersList[x+1]
+                    break
                 else:
                     self.playersTurn = self.playersList[0]
-                break
+                    break
     def checkPlayerSkip():          
         if Game.playersTurn.skipTurn > 0:
             Game.playersTurn.skipTurn -= 1 

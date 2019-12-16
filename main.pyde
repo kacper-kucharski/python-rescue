@@ -79,10 +79,6 @@ def mousePressed():
                 if cp5.getController(x.getName()).isPressed():
                     background(115, 167, 136)
                     x = x.getName()
-                    for i in playersList:
-                        print i.skipTurn
-                    
-                   
                     if x == 'Begin Spel' and scene == 0:
                         same = 0
                         # check of input niet leeg is en maakt vervolgens een player object met de gegeven naam
@@ -108,6 +104,7 @@ def mousePressed():
                         if len(playersList) >= 2:
                             deleteAllComponents()
                             scene = 1
+                            print(playersList)
                             game = classes.Game(playersList)
                             interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)   
                         else:
@@ -260,8 +257,8 @@ def mousePressed():
                         scene = 1
                         break
                     if x == "Verander beurt":
-                        deleteAllComponents()
                         game.changePlayerTurn()
+                        deleteAllComponents()
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
                         break
                      # This checks if the awnser commited is right or wrong.
