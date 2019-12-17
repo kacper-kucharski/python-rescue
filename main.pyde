@@ -21,12 +21,13 @@ def changeFocus():
 def setup():
     color(0)
     background(115, 167, 136)
-    global playerName, savedPlayerName, interactiveObjects, cp5, font, scene, buttonNames, playersList, game
+    global playerName, savedPlayerName, interactiveObjects, cp5, font, scene, buttonNames, playersList, game, playerLevelList
     font = createFont("arial",30);
     scene = -1
     cp5 = ControlP5(this)
     interactiveObjects = []
     playersList = []
+    playerLevelList = [None, None, None, None]
     game = 0
     interactiveObjects = scenes.titleScene(cp5, font, interactiveObjects)
     fullScreen()
@@ -49,6 +50,8 @@ def keyPressed():
     if key == "a" and scene == 7 and duelPressed == False:
         background(115, 167, 136)
         deleteAllComponents()
+        font = createFont('arial', 20)
+        textFont(font)
         text(str(vraag[0]), width * 0.02, height * 0.29)
         for i in range(1, 5):
             if vraag[i] != '':
@@ -57,8 +60,10 @@ def keyPressed():
         playerThatCanAnswer = game.playersTurn
         duelPressed = True
     if key == "l" and scene == 7 and duelPressed == False:
-        background(182, 123, 101)
+        background(115, 167, 136)
         deleteAllComponents()
+        font = createFont('arial', 20)
+        textFont(font)
         text(str(vraag[0]), width * 0.02, height * 0.29)
         for i in range(1, 5):
             if vraag[i] != '':
@@ -67,7 +72,7 @@ def keyPressed():
         playerThatCanAnswer = game.duelAgainst
         duelPressed = True
 def mousePressed():
-    global cp5, scene, interactiveObjects, playersList, game, duelPressed, playerThatCanAnswer, vraag
+    global cp5, scene, interactiveObjects, playersList, game, duelPressed, playerThatCanAnswer, vraag, playerLevelList
     try:
         for x in interactiveObjects:
             if scene == -1:
@@ -78,67 +83,129 @@ def mousePressed():
             try:
                 if cp5.getController(x.getName()).isPressed():
                     background(115, 167, 136)
-                    x = x.getName()
-                    
-                   
-                    if x == 'Begin Spel' and scene == 0:
-                        # same = 0
-                        # check of input niet leeg is en maakt vervolgens een player object met de gegeven naam
-                        # if cp5.getController("Speler 1").getText() != "":
-                        playersList.append(classes.Player(cp5.getController("Speler 1").getText()))
-                        # if cp5.getController("Speler 2").getText() != "":
-                        playersList.append(classes.Player(cp5.getController("Speler 2").getText()))
-                        # if cp5.getController("Speler 3").getText() != "":
-                        playersList.append(classes.Player(cp5.getController("Speler 3").getText()))
-                        # if cp5.getController("Speler 4").getText() != "":
-                        playersList.append(classes.Player(cp5.getController("Speler 4").getText()))
-                        # for i in playerList:
-                        #     print(i.name)
-                            # for y in playerList:
-                            #     print(x.name,y.name)
-                            #     if x.name == y.name:
-                            #         same == 1
-                            
-                        # if same == 1:
-                        #     playersList = []
-                        #     text("Er moeten wel unieke namen ingevoerd worden.", width * 0.45, height * 0.16)
-                        #     text(" Vul hier de namen van de spelers in \n en start het spel. Veel plezier!", width * 0.45, height* 0.36)
-                        if len(playersList) >= 2:
-                            deleteAllComponents()
-                            scene = 1
-                            print(playersList)
-                            game = classes.Game(playersList)
-                            interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)   
-                        else:
-                            playersList = []
-                            text(" Er moeten 4 speler namen \n ingevuld worden om het spel te beginnen.", width * 0.45, height * 0.16)
-                            text(" Vul hier de namen van de spelers in \n en start het spel. Veel plezier!", width * 0.45, height* 0.36)    
-                        break         
-                    if x == "Eind Vraag" and scene == 1:
+                    if x.getName() == "Eind Vraag" and scene == 1:
                         deleteAllComponents()
                         scene = 1000
                         interactiveObjects = eindgame.startEindgame(cp5, font, interactiveObjects, game)
-                    if (x == "antwoord 1" or x == "antwoord 2" or x == "antwoord 3" or x == "antwoord 4") and scene == 1000:
+                    if (x.getName() == "antwoord 1" or x.getName() == "antwoord 2" or x.getName() == "antwoord 3" or x.getName() == "antwoord 4") and scene == 1000:
+                        game.playersTurn.eindvraagAntwoorden = []
                         deleteAllComponents()
                         scene = 1001
+                        game.playersTurn.eindvraagAntwoorden.append(x.getLabel())
                         interactiveObjects = eindgame.tweedeEindvraag(cp5, font, interactiveObjects, game)
-                    if (x == "antwoord 5" or x == "antwoord 6" or x == "antwoord 7" or x == "antwoord 8") and scene == 1001:
+                    elif (x.getName() == "antwoord 1" or x.getName() == "antwoord 2" or x.getName() == "antwoord 3" or x.getName() == "antwoord 4") and scene == 1001:
                         deleteAllComponents()
                         scene = 1002
+                        game.playersTurn.eindvraagAntwoorden.append(x.getLabel())
                         interactiveObjects = eindgame.derdeEindvraag(cp5, font, interactiveObjects, game)
-                    if (x == "antwoord 1" or x == "antwoord 2" or x == "antwoord 3" or x == "antwoord 4") and scene == 1002:
+                    elif (x.getName() == "antwoord 1" or x.getName() == "antwoord 2" or x.getName() == "antwoord 3" or x.getName() == "antwoord 4") and scene == 1002:
                         deleteAllComponents()
                         scene = 1003
+                        game.playersTurn.eindvraagAntwoorden.append(x.getLabel())
                         interactiveObjects = eindgame.vierdeEindvraag(cp5, font, interactiveObjects, game)
-                    if (x == "antwoord 5" or x == "antwoord 6" or x == "antwoord 7" or x == "antwoord 8") and scene == 1003:
+                    elif (x.getName() == "antwoord 1" or x.getName() == "antwoord 2" or x.getName() == "antwoord 3" or x.getName() == "antwoord 4") and scene == 1003:
                         deleteAllComponents()
-                        scene = 1
-                        interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
-                    if x == "Terug" and (scene == 1000 or scene == 1001 or scene == 1002 or scene == 1003):
+                        scene = 1004
+                        game.playersTurn.eindvraagAntwoorden.append(x.getLabel())
+                        interactiveObjects = eindgame.vijfdeEindvraag(cp5, font, interactiveObjects, game)
+                    elif (x.getLabel() == "name" or x.getLabel() == "age" or x.getLabel() == "year") and scene == 1004:
+                        deleteAllComponents()
+                        scene = 1005
+                        game.playersTurn.eindvraagAntwoorden.append(x.getLabel())
+                        interactiveObjects = eindgame.zesdeEindvraag(cp5, font, interactiveObjects, game)
+                    elif (x.getLabel() == "name" or x.getLabel() == "age" or x.getLabel() == "year") and scene == 1005:
+                        deleteAllComponents()
+                        scene = 1006
+                        game.playersTurn.eindvraagAntwoorden.append(x.getLabel())
+                        interactiveObjects = eindgame.zevendeEindvraag(cp5, font, interactiveObjects, game)
+                    elif (x.getLabel() == "name" or x.getLabel() == "age" or x.getLabel() == "year") and scene == 1006:
+                        deleteAllComponents()
+                        scene = 1007
+                        game.playersTurn.eindvraagAntwoorden.append(x.getLabel())
+                        interactiveObjects = eindgame.eindVraagResult(cp5, font, interactiveObjects, game)
+                    elif x.getName() == "Terug" and (scene == 1000 or scene == 1001 or scene == 1002 or scene == 1003 or scene == 1004 or scene == 1005 or scene == 1006 or scene == 1007):
                         game.changePlayerTurn()
                         deleteAllComponents()
                         scene = 1
                         interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)
+                    x = x.getName()
+                    if x == "player1_easy" and scene == 0:
+                        playerLevelList[0] = "makkelijk"
+                    if x == "player1_medium" and scene == 0:
+                        playerLevelList[0] = "gemiddeld"
+                    if x == "player1_hard" and scene == 0:
+                        playerLevelList[0] = "moeilijk"
+                        
+                    if x == "player2_easy" and scene == 0:
+                        playerLevelList[1] = "makkelijk"
+                    if x == "player2_medium" and scene == 0:
+                        playerLevelList[1] = "gemiddeld"
+                    if x == "player2_hard" and scene == 0:
+                        playerLevelList[1] = "moeilijk"
+                        
+                    if x == "player3_easy" and scene == 0:
+                        playerLevelList[2] = "makkelijk"
+                    if x == "player3_medium" and scene == 0:
+                        playerLevelList[2] = "gemiddeld"
+                    if x == "player3_hard" and scene == 0:
+                        playerLevelList[2] = "moeilijk"
+                        
+                    if x == "player4_easy" and scene == 0:
+                        playerLevelList[3] = "makkelijk"
+                    if x == "player4_medium" and scene == 0:
+                        playerLevelList[3] = "gemiddeld"
+                    if x == "player4_hard" and scene == 0:
+                        playerLevelList[3] = "moeilijk"
+                        
+                    # for i in range(len(playerslist)):
+                    #     playersList[i].difficulty
+                    #     if playersList[i].difficulty == 'makkelijk':
+                    #         text('Makkelijk',width * 0.46,height * 0.28 + 0.20 * i)
+                    #     if playersList[i].difficulty == 'gemiddeld':
+                    #         text('Gemiddeld',width * 0.66,height * 0.28 + 0.20 * i)
+                    #     if playersList[i].difficulty == 'moeilijk':
+                    #         text('Moeilijk',width * 0.86,height * 0.28 + 0.20 * i)
+                            
+                    if scene == 0:
+                        text(" Vul hier de namen van de spelers in.                  Geef hier je niveau aan.", width * 0.02, height* 0.09)
+                    if x == 'Begin Spel' and scene == 0:
+                        same = 0
+                        # check of input niet leeg is en maakt vervolgens een player object met de gegeven naam
+                        playersList.append(classes.Player(cp5.getController("Speler 1").getText(), playerLevelList[0]))
+                        playersList.append(classes.Player(cp5.getController("Speler 2").getText(), playerLevelList[1]))
+                        playersList.append(classes.Player(cp5.getController("Speler 3").getText(), playerLevelList[2]))
+                        playersList.append(classes.Player(cp5.getController("Speler 4").getText(), playerLevelList[3]))
+                        checkList = []
+                        for i in playersList:
+                            if i.name != '':
+                                checkList.append(i)
+                            # for y in playerList:
+                            #     print(x.name,y.name)
+                            #     if x.name == y.name:
+                            #         same == 1   
+                        if same == 1:
+                            playersList = []
+                            text("Er moeten wel unieke namen ingevoerd worden.", width * 0.20, height * 0.16)
+                            text(" Vul hier de namen van de spelers in.                  Geef hier je niveau aan.", width * 0.02, height* 0.09)
+                        if len(checkList) >= 2:
+                            deleteAllComponents()
+                            scene = 1
+                            print(playersList)
+                            game = classes.Game(playersList)
+                            print(game.playersList[0].name, game.playersList[0].difficulty)
+                            print(game.playersList[1].name, game.playersList[1].difficulty)
+                            print(game.playersList[2].name, game.playersList[2].difficulty)
+                            print(game.playersList[3].name, game.playersList[3].difficulty)
+                            interactiveObjects = scenes.mainMenu(cp5, font, interactiveObjects, game)   
+                        else:
+                            playersList = []
+                            text(" Er moet wel meer dan 1 speler naam \n ingevuld worden om het spel te beginnen.", width * 0.12, height * 0.90)
+                            text(" Vul hier de namen van de spelers in.                  Geef hier je niveau aan.", width * 0.02, height* 0.09)    
+                        break   
+                    if game != 0:
+                        print(game.playersTurn.eindvraagAntwoorden)
+                    print(x, scene)              
+           
                     if x == "Eindig Spel":
                         exit()
                         break

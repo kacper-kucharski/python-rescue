@@ -3,7 +3,7 @@ import random
 
 # Create Player class with name, difficulty and optional currentPoints parameters.
 class Player:
-    def __init__(self, name, difficulty="makkelijk", currentPoints = 0, Exp = 5):
+    def __init__(self, name, difficulty, currentPoints = 0, Exp = 5):
         self.name = name
         self.difficulty = difficulty
         self.currentPoints = currentPoints
@@ -11,6 +11,7 @@ class Player:
         self.lastQuestion = None
         self.lastAwnser = None
         self.skipTurn = 0
+        self.eindvraagAntwoorden = []
     def level_change(self):
         if self.Exp < 4:
             self.difficulty = 'makkelijk'
@@ -61,6 +62,7 @@ class Game:
         self.playersList = playerList
         self.playersTurn = playerList[0]
         self.duelAgainst = None
+        self.eindvraagAntwoorden = ['input', 'input', 'int', 'int', 'age', 'name', 'year']
         
     list_makkelijk = importKaarten('import_csv/Leveltracker/MakkelijkKaarten')
     list_gemiddeld = importKaarten('import_csv/Leveltracker/GemiddeldKaarten')
@@ -70,7 +72,7 @@ class Game:
     def changePlayerTurn(self):
         for x in range(len(self.playersList)):
             if self.playersTurn.name == self.playersList[x].name:
-                if x != len(self.playersList)-1:
+                if x != len(self.playersList)-1 and self.playersList[x+1].name != "":
                     self.playersTurn = self.playersList[x+1]
                 else:
                     self.playersTurn = self.playersList[0]
