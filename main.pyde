@@ -27,7 +27,7 @@ def setup():
     cp5 = ControlP5(this)
     interactiveObjects = []
     playersList = []
-    playerLevelList = [None, None, None, None]
+    playerLevelList = ["makkelijk", "makkelijk", "makkelijk", "makkelijk", 0, 0, 0, 0]
     game = 0
     interactiveObjects = scenes.titleScene(cp5, font, interactiveObjects)
     fullScreen()
@@ -131,31 +131,43 @@ def mousePressed():
                     x = x.getName()
                     if x == "player1_easy" and scene == 0:
                         playerLevelList[0] = "makkelijk"
+                        playerLevelList[4] = 0
                     if x == "player1_medium" and scene == 0:
                         playerLevelList[0] = "gemiddeld"
+                        playerLevelList[4] = 5
                     if x == "player1_hard" and scene == 0:
                         playerLevelList[0] = "moeilijk"
+                        playerLevelList[4] = 8
                         
                     if x == "player2_easy" and scene == 0:
                         playerLevelList[1] = "makkelijk"
+                        playerLevelList[5] = 0
                     if x == "player2_medium" and scene == 0:
                         playerLevelList[1] = "gemiddeld"
+                        playerLevelList[5] = 5
                     if x == "player2_hard" and scene == 0:
                         playerLevelList[1] = "moeilijk"
+                        playerLevelList[5] = 8
                         
                     if x == "player3_easy" and scene == 0:
                         playerLevelList[2] = "makkelijk"
+                        playerLevelList[6] = 0 
                     if x == "player3_medium" and scene == 0:
                         playerLevelList[2] = "gemiddeld"
+                        playerLevelList[6] = 5
                     if x == "player3_hard" and scene == 0:
                         playerLevelList[2] = "moeilijk"
+                        playerLevelList[6] = 8
                         
                     if x == "player4_easy" and scene == 0:
                         playerLevelList[3] = "makkelijk"
+                        playerLevelList[7] = 0
                     if x == "player4_medium" and scene == 0:
                         playerLevelList[3] = "gemiddeld"
+                        playerLevelList[7] = 5
                     if x == "player4_hard" and scene == 0:
                         playerLevelList[3] = "moeilijk"
+                        playerLevelList[7] = 8
                         
                     # for i in range(len(playerslist)):
                     #     playersList[i].difficulty
@@ -166,23 +178,18 @@ def mousePressed():
                     #     if playersList[i].difficulty == 'moeilijk':
                     #         text('Moeilijk',width * 0.86,height * 0.28 + 0.20 * i)
                             
-                    if scene == 0:
-                        text(" Vul hier de namen van de spelers in.                  Geef hier je niveau aan.", width * 0.02, height* 0.09)
+                    
                     if x == 'Begin Spel' and scene == 0:
                         same = 0
                         # check of input niet leeg is en maakt vervolgens een player object met de gegeven naam
-                        playersList.append(classes.Player(cp5.getController("Speler 1").getText(), playerLevelList[0]))
-                        playersList.append(classes.Player(cp5.getController("Speler 2").getText(), playerLevelList[1]))
-                        playersList.append(classes.Player(cp5.getController("Speler 3").getText(), playerLevelList[2]))
-                        playersList.append(classes.Player(cp5.getController("Speler 4").getText(), playerLevelList[3]))
+                        playersList.append(classes.Player(cp5.getController("Speler 1").getText(), playerLevelList[0], playerLevelList[4]))
+                        playersList.append(classes.Player(cp5.getController("Speler 2").getText(), playerLevelList[1], playerLevelList[5]))
+                        playersList.append(classes.Player(cp5.getController("Speler 3").getText(), playerLevelList[2], playerLevelList[6]))
+                        playersList.append(classes.Player(cp5.getController("Speler 4").getText(), playerLevelList[3], playerLevelList[7]))
                         checkList = []
                         for i in playersList:
                             if i.name != '':
                                 checkList.append(i)
-                            # for y in playerList:
-                            #     print(x.name,y.name)
-                            #     if x.name == y.name:
-                            #         same == 1   
                         if same == 1:
                             playersList = []
                             text("Er moeten wel unieke namen ingevoerd worden.", width * 0.20, height * 0.16)
@@ -337,7 +344,7 @@ def mousePressed():
                         if str(x) == str(game.playersTurn.lastQuestion[6]):  
                             scene = 8
                             game.playersTurn.currentPoints += 1
-                            game.playersTurn.Exp += 1
+                            game.playersTurn.Exp += 2
                             game.changePlayerTurn()
                             interactiveObjects = scenes.vraagResultSceneRight(cp5, font, interactiveObjects, game)
                         else:  
@@ -366,6 +373,8 @@ def mousePressed():
                                 game.changePlayerTurn()
                             interactiveObjects = scenes.duelResultSceneWrong(cp5, font, interactiveObjects, game, playerThatCanAnswer) 
                     
+                    if scene == 0:
+                        text(" Vul hier de namen van de spelers in.                  Geef hier je niveau aan.", width * 0.02, height* 0.09)
             except:
                 print(sys.exc_info()[1])
                 

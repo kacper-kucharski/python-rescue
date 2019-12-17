@@ -74,15 +74,16 @@ def zevendeEindvraag(cp5, font, interactiveObjects, game):
     return interactiveObjects
 def eindVraagResult(cp5, font, interactiveObjects, game):
     Fout = False
+    eersteKleur = color(19, 94, 70)
+    tweedeKleur = color(71, 137, 102)
     for i in range(len(game.playersTurn.eindvraagAntwoorden)):
         if game.playersTurn.eindvraagAntwoorden[i] != game.eindvraagAntwoorden[i]:
             Fout = True
     if Fout:
         text('Fout!', int(width * 0.01), int(height * 0.10))
+        interactiveObjects.append(cp5.addButton('Terug').setLabel('Geef beurt door!').setPosition(int(width * 0.00), int(height* 0.00)).setSize(int(width), int(height* 0.05 )).setFont(font).setColorBackground(eersteKleur).setColorForeground(tweedeKleur))
     else:
-        text('Gefelicteerd, ' + game.playersTurn.name + ' je hebt gewonnen!', int(width * 0.01), int(height * 0.10))
-    eersteKleur = color(19, 94, 70)
-    tweedeKleur = color(71, 137, 102)
-    interactiveObjects.append(cp5.addButton('Terug').setLabel('Geef beurt door!').setPosition(int(width * 0.00), int(height* 0.00)).setSize(int(width), int(height* 0.05 )).setFont(font).setColorBackground(eersteKleur).setColorForeground(tweedeKleur))
+        text('Gefelicteerd, ' + game.playersTurn.name + ' je hebt gewonnen!', int(width * 0.20), int(height * 0.40))
+        interactiveObjects.append(cp5.addButton('Eindig Spel').setPosition(int(width * 0.00), int(height* 0.00)).setSize(int(width), int(height* 0.05 )).setFont(font).setColorBackground(eersteKleur).setColorForeground(tweedeKleur))
     return interactiveObjects
     
