@@ -43,8 +43,9 @@ def playerNameScene(cp5, font, interactiveObjects):
     return interactiveObjects
 # scene = 1
 def mainMenu(cp5, font, interactiveObjects, game):
-    text("Aan de beurt: " + str(game.playersTurn.name), width * 0.05, height * 0.15)
+    text("Aan de beurt: " + str(game.playersTurn.name), width * 0.05, height * 0.10)
     text("Aantal punten: " + str(game.playersTurn.currentPoints), width * 0.05, height * 0.20)   
+    text("Spelers niveau: " + str(game.playersTurn.difficulty), width * 0.05, height * 0.15)
     interactiveObjects.append(cp5.addButton("Verander beurt").setPosition(int(width* 0.79 ), int(height* 0.12 )).setSize(int(width* 0.15 ), int(height* 0.07 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
     interactiveObjects.append(cp5.addTextlabel("Kaarten").setPosition(int(width* 0.03 ), int(height* 0.05 )).setSize(int(width* 0.05 ), int(height* 0.05 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
     interactiveObjects.append(cp5.addButton("Eindig Spel").setPosition(int(width* 0.79 ), int(height* 0.03 )).setSize(int(width* 0.12 ), int(height* 0.07 )).setFont(font).setColorBackground(color(19, 94, 70)).setColorActive(color(71, 137, 102)).setColorForeground(color(71, 137, 102)))

@@ -27,7 +27,7 @@ def setup():
     cp5 = ControlP5(this)
     interactiveObjects = []
     playersList = []
-    playerLevelList = [None, None, None, None]
+    playerLevelList = ["makkelijk", "makkelijk", "makkelijk", "makkelijk"]
     game = 0
     interactiveObjects = scenes.titleScene(cp5, font, interactiveObjects)
     fullScreen()
