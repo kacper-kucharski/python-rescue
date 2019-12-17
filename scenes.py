@@ -46,13 +46,6 @@ def mainMenu(cp5, font, interactiveObjects, game):
     interactiveObjects.append(cp5.addButton("Kans").setPosition(int(width* 0.05 ), int(height* 0.60 )).setSize(int(width* 0.41 ), int(height* 0.24 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
     interactiveObjects.append(cp5.addButton("Duel").setPosition(int(width* 0.53 ), int(height* 0.60 )).setSize(int(width* 0.41 ), int(height* 0.24 )).setFont(font).setColorBackground(color(131, 89, 73)).setColorActive(color(182, 123, 101)).setColorForeground(color(182, 123, 101)))
     return interactiveObjects
-# scene = 50
-def veranderBeurtScene(cp5, font, interactiveObjects, game):
-    game.changePlayerTurn()
-    print 'hallo?'
-    print interactiveObjects
-    return interactiveObjects
-    
 # scene = 2
 def vraagScene(cp5, font, interactiveObjects, game):
     vraag = game.getVraag()
@@ -70,7 +63,7 @@ def doomScene(cp5, font, interactiveObjects, game):
         game.playersTurn.skipTurn += 2
     if doom == "Sla een beurt over":
         game.playersTurn.skipTurn += 1
-    if doom == "Leg een van jouw munten terug":
+    if doom == "leg een van jouw munten terug":
         if  game.playersTurn.currentPoints > 0:
             game.playersTurn.currentPoints -= 1
     text("" + doom, int(width* 0.09 ), int(height* 0.3 ))
