@@ -3,7 +3,7 @@ import random
 
 # Create Player class with name, difficulty and optional currentPoints parameters.
 class Player:
-    def __init__(self, name, difficulty="makkelijk", Exp = 0, currentPoints = 4):
+    def __init__(self, name, difficulty="makkelijk", Exp = 0, currentPoints = 0):
         self.name = name
         self.difficulty = difficulty
         self.currentPoints = currentPoints
